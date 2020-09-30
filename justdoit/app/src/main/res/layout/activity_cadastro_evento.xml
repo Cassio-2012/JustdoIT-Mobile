@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.evento.CadastroEventoActivity">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/menu" />
+
+        <ImageView
+            android:id="@+id/logoTexto"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="2"
+            android:src="@drawable/logotexto" />
+
+        <ImageView
+            android:id="@+id/logoImagem"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/logo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastro de Eventos"
+            android:textColor="#000"
+            android:textSize="26sp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nomeDeEventoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/titulo" />
+
+        <EditText
+            android:id="@+id/nomeDeEventoInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="10sp"
+            android:hint="Nome do Evento"
+            android:textColor="@color/colorBlack"
+            android:background="@drawable/custom_input"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/nomeDeEventoTxt"
+
+            />
+
+        <TextView
+            android:id="@+id/enderecoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Endereço"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/nomeDeEventoInput" />
+
+        <EditText
+            android:id="@+id/enderecoInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Endereço"
+            android:paddingStart="10sp"
+            android:background="@drawable/custom_input"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+
+            app:layout_constraintTop_toBottomOf="@id/enderecoTxt" />
+
+        <LinearLayout
+            android:id="@+id/dataHoraInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/enderecoInput">
+
+            <LinearLayout
+                android:id="@+id/campoData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/enderecoInput">
+
+                <TextView
+                    android:id="@+id/dataTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/dataInput"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_input"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:layout_marginBottom="15dp"
+                    android:paddingStart="10sp"
+                    android:inputType="date"
+                    android:hint="00/00/0000"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorBlack"
+
+                    app:layout_constraintTop_toBottomOf="@id/dataTxt" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/campoHora"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/enderecoInput">
+
+                <TextView
+                    android:id="@+id/horaTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hora"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/horainput"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="15dp"
+                    android:paddingStart="10sp"
+                    android:background="@drawable/custom_input"
+                    android:inputType="time"
+                    android:hint="00:00"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@id/dataTxt" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/descricaoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/dataHoraInput" />
+
+        <EditText
+            android:id="@+id/descricaoInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="10sp"
+            android:hint="Descrição do evento "
+            android:background="@drawable/custom_input"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/descricaoTxt" />
+
+        <Button
+            android:id="@+id/cadastrarBotao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button_blue"
+            android:padding="15dp"
+            android:text="Cadastrar"
+            android:textColor="#ffff"
+            android:textSize="18sp"
+            android:onClick="validarCadastro"
+            app:layout_constraintTop_toBottomOf="@id/descricaoInput"
+            android:textAllCaps="false"/>
+
+
+        <Button
+            android:id="@+id/finalizarBotao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button_gray"
+            android:padding="15dp"
+            android:text="Cancelar"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:onClick="cancelarCadastro"
+            app:layout_constraintTop_toBottomOf="@id/cadastrarBotao" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

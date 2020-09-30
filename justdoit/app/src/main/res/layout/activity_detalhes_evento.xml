@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.evento.DetalhesEventoActivity">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/menu" />
+
+        <ImageView
+            android:id="@+id/logoTexto"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="2"
+            android:src="@drawable/logotexto" />
+
+        <ImageView
+            android:id="@+id/loboImagem"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/logo" />
+    </LinearLayout>
+  <LinearLayout
+      android:id="@+id/body"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="80dp"
+      android:orientation="vertical"
+      android:padding="20dp"
+      tools:layout_editor_absoluteX="0dp"
+      tools:layout_editor_absoluteY="0dp">
+
+
+      <TableLayout
+          android:id="@+id/registro"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#fff"
+          android:padding="5dp"
+          app:layout_constraintTop_toBottomOf="@id/titulo">
+
+          <TableRow>
+              <TextView
+              android:id="@+id/titulo"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+              android:text="Detalhes"
+              android:gravity="center"
+              android:textColor="#000"
+              android:textSize="20sp"
+              android:textStyle="normal" /></TableRow>
+<TableRow>
+          <TextView
+              android:id="@+id/tituloEventoDetalhes"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:gravity="center"
+              android:paddingTop="20dp"
+              android:textColor="@color/colorBlack"
+              android:text="[Online]Big Data: arquitetando um Data Lake no mundo real"
+              android:textStyle="bold"
+              android:textSize="20sp" />
+      </TableRow>
+          <TableRow>
+
+              <TextView
+                  android:id="@+id/dataHoraEventoDetalhes"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center"
+                  android:textColor="@color/colorGray"
+                  android:paddingTop="8dp"
+                  android:text="Quinta - Feira 10 Setembro 12:00"
+                  android:textSize="14sp" />
+          </TableRow>
+          <TableRow>
+
+              <TextView
+                  android:id="@+id/enderecoEventoDetalhes"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:textColor="@color/colorGray"
+                  android:gravity="center"
+                  android:paddingTop="8dp"
+                  android:text="Avenida Paulista nº3300"
+                  android:textSize="14sp" />
+          </TableRow>
+          <TableRow>
+
+              <TextView
+                  android:id="@+id/detalhesEventoDetalhes"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center"
+                  android:paddingTop="8dp"
+                  android:textColor="@color/colorBlack"
+                  android:text="
+Acompanhe este evento ONLINE e GRATUITO no Canal .NET para conhecer mais sobre Data Lake e sua utilização em cenários de Big Data!
+
+Saiba quais os benefícios, vantagens e desvantagens de contruir um Data Lake no seu ambiente corporativo. E como contruir um data lake da melhor forma, utilizando todas as camadas adequadas para uma boa arquitetura buscando obter um roadmap de sucesso!"
+                  android:textSize="20sp" />
+              </TableRow>
+          <TableRow>
+
+              <Button
+                  android:id="@+id/cadastrarBotao"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:layout_marginTop="50dp"
+                  android:background="@drawable/custom_button_pink"
+                  android:padding="15dp"
+                  android:text="Participar"
+                  android:textAllCaps="false"
+                  android:textColor="#ffff"
+                  android:textSize="18sp"
+                  app:layout_constraintTop_toBottomOf= "parent"
+                  app:layout_constraintLeft_toLeftOf= "parent"
+                  app:layout_constraintRight_toRightOf = "parent"/>
+              </TableRow>
+
+
+      </TableLayout>
+
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
