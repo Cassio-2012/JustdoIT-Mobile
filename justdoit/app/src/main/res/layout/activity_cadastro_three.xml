@@ -56,7 +56,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="5dp"
-                    android:src="@mipmap/pencil"/>
+                    android:src="@drawable/ic_pen"/>
 
             </LinearLayout>
 
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="35dp"
-                android:src="@mipmap/camera"/>
+                android:src="@drawable/ic_camera"/>
 
             <TextView
                 android:layout_width="wrap_content"
