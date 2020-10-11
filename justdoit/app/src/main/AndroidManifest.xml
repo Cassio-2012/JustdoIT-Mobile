@@ -19,6 +19,7 @@
         <activity android:name=".view.evento.ListaEventosActivity" />
         <activity android:name=".view.evento.CadastroEventoActivity" />
         <activity android:name=".cadastro.CadastroOneActivity">
+        <activity android:name=".view.evento.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
