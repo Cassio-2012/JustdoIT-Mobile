@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">just-do-it</string>
+    <string name="email_label">E-mail or phone</string>
+    <string name="senha_label">Password</string>
+    <string name="caracteres">8 or more characters</string>
+    <string name="cadastre_se">Sign Up on JustDoIT</string>
+    <string name="continuar"><b>Continue</b></string>
+    <string name="cancelar"><b>Cancel</b></string>
+    <string name="ocupacao">Title or position</string>
+    <string name="str_nome">Name</string>
+    <string name="cidade">City and state where you live</string>
+    <string name="about">Tell us a little more about</string>
+    <string name="foto">Now add an photo for your profile</string>
+    <string name="carregar"><b> Load image </b></string>
+    <string name="pular">Skip</string>
+    <string name="ou">or</string>
+    <string name="entrar">sign in</string>
+    <string name="voce">you</string>
+</resources>

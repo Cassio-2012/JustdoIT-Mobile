@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cadastro.CadastroOneActivity">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+
+            <ImageView
+            android:id="@+id/logoImagem"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="320dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/cadastro_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastre_se"
+                android:textColor="#000000"
+                android:textSize="26sp"
+                android:layout_marginTop="32dp"
+                style="@style/margin_default"
+                tools:layout_editor_absoluteX="39dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/or"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ou"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    style="@style/margin_default"
+                    tools:ignore="MissingConstraints" />
+                <TextView
+                    android:id="@+id/enter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/entrar"
+                    android:layout_marginLeft="5sp"
+                    android:layout_toRightOf="@id/or"
+                    android:textColor="#FF0099FF"
+                    android:textSize="16sp"
+                    tools:ignore="MissingConstraints" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:orientation="vertical"
+                android:id="@+id/body_two">
+
+
+                    <TextView
+                        android:id="@+id/email_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email_label"
+                        android:textSize="16sp"
+                        app:layout_constraintTop_toBottomOf="@+id/body_two"
+                        style="@style/margin_default"
+                        android:layout_marginTop="30dp"
+                        tools:ignore="MissingConstraints" />
+
+                    <EditText
+                        android:layout_height="36dp"
+                        android:id="@+id/et_email"
+                        android:background="@drawable/input_cadastro"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/email_label"
+                        style="@style/width_et"/>
+
+                    <TextView
+                        android:id="@+id/pass_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/senha_label"
+                        android:textSize="16sp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/et_email"
+                        style="@style/margin_default"
+                        tools:ignore="MissingConstraints" />
+
+                    <EditText
+                        android:layout_width="290dp"
+                        android:layout_height="36dp"
+                        android:id="@+id/et_senha"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/input_cadastro"
+                        app:layout_constraintTop_toBottomOf="@+id/pass_label"
+                        style="@style/margin_default"/>
+
+                    <TextView
+                        android:id="@+id/caracteres"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/caracteres"
+                        android:textSize="14sp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/et_senha"
+                        style="@style/width_et"
+                        tools:ignore="MissingConstraints" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="290dp"
+                android:layout_height="36dp"
+                android:id="@+id/btn-cadatro-one"
+                android:hint="@string/continuar"
+                android:textColorHint="#FFFFFF"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginTop="390dp"
+                style="@style/margin_default"
+                android:onClick="sendToNext"
+                app:layout_constraintTop_toBottomOf="@id/body_two"
+                android:background="@drawable/btn_cadastro_blue"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

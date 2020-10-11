@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">just-do-it</string>
+    <string name="email_label">E-mail ou telefone</string>
+    <string name="senha_label">Senha</string>
+    <string name="caracteres">8 ou mais caracteres</string>
+    <string name="cadastre_se">Cadastre-se no JustDoIT</string>
+    <string name="continuar"><b>Continuar</b></string>
+    <string name="cancelar"><b>Cancelar</b></string>
+    <string name="ocupacao">Ocupação ou título</string>
+    <string name="str_nome">Nome</string>
+    <string name="cidade">Cidade e estado onde mora</string>
+    <string name="about">Nos conte mais um pouco sobre</string>
+    <string name="foto">Agora adicione uma foto para o seu pefil</string>
+    <string name="carregar"><b>Carregar foto</b></string>
+    <string name="pular">Pular</string>
+    <string name="ou">ou</string>
+    <string name="entrar">entrar</string>
+    <string name="voce">você</string>
+
 </resources>
+
+
