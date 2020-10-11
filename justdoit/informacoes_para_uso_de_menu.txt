@@ -1,0 +1,20 @@
+para adicionar o menu no seu layout, é necessario que a escrutura principal seja androidx.drawerlayout.widget.DrawerLayout e contenha esses atributos:
+ 
+ android:id="@+id/drawer_layout"
+ android:fitsSystemWindows="true"
+ tools:openDrawer= "start"
+
+
+
+
+
+seguindo o padrão de ser 
+<DrawerLayout>
+<NavigatioView/>
+<ScrollView>
+	<LinearLayout>
+	<Include/>
+	<todo os item que tem em seu layout>
+	</LinearLayout>
+</ScrollView>
+</DrawerLayout>

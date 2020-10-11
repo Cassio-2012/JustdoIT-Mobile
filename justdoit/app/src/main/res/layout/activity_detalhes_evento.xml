@@ -1,53 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.evento.DetalhesEventoActivity">
+    tools:context=".view.evento.DetalhesEventoActivity"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    tools:openDrawer= "start">
 
-    <LinearLayout
-        android:id="@+id/header"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"/>
 
-
-        <ImageView
-            android:id="@+id/menu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:src="@drawable/menu" />
-
-        <ImageView
-            android:id="@+id/logoTexto"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="2"
-            android:src="@drawable/logotexto" />
-
-        <ImageView
-            android:id="@+id/loboImagem"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:src="@drawable/logo" />
-    </LinearLayout>
-  <LinearLayout
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
       android:id="@+id/body"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_marginTop="80dp"
       android:orientation="vertical"
       android:padding="20dp"
       tools:layout_editor_absoluteX="0dp"
       tools:layout_editor_absoluteY="0dp">
 
+        <include
+            layout="@layout/toolbar"
+            android:id="@+id/toobar"/>
 
       <TableLayout
           android:id="@+id/registro"
@@ -146,5 +130,5 @@ Saiba quais os benefícios, vantagens e desvantagens de contruir um Data Lake no
       </TableLayout>
 
   </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</androidx.drawerlayout.widget.DrawerLayout>

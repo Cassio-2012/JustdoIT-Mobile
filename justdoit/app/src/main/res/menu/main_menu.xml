@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_recomendation"
+            android:icon="@drawable/ic_like"
+            android:title="@string/recomendados" />
+    </group>
+
+
+        <item android:title="@string/perfil">
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_person"
+                    android:icon="@drawable/ic_person"
+                    android:title="@string/perfil" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="@string/logout" />
+                </group>
+            </menu>
+        </item>
+
+
+        <item android:title="@string/evento">
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:icon="@drawable/ic_list"
+                    android:id="@+id/nav_all_events"
+                    android:title="@string/lista_de_eventos" />
+                <item
+
+                android:id="@+id/nav_cad_event"
+                    android:icon="@drawable/ic_new_event"
+                android:title="@string/cadastro_de_evento" />
+                </group>
+            </menu>
+        </item>
+
+
+<item
+android:icon="@drawable/ic_help"
+android:id="@+id/nav_help"
+android:title="@string/ajuda" />
+
+
+    </menu>

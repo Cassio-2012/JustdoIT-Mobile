@@ -17,6 +17,32 @@
     <string name="entrar">entrar</string>
     <string name="voce">você</string>
 
-</resources>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="cadastro_de_eventos">Cadastro de Eventos</string>
+    <string name="nome_do_evento">Nome do Evento</string>
+    <string name="cep">Cep</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="complemento">Complemento</string>
+    <string name="bairro">Bairro</string>
+    <string name="localidade">Localidade</string>
+    <string name="uf">UF</string>
+    <string name="data">Data</string>
+    <string name="hora">Hora</string>
+    <string name="hora_default" translatable="false">00:00</string>
+    <string name="data_defalt" translatable="false">00/00/0000</string>
+    <string name="descricao">Descrição</string>
+    <string name="descricao_do_evento">Descrição do evento</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="recomendados">Recomendados</string>
+    <string name="perfil">Perfil</string>
+    <string name="logout" translatable="false">Logout</string>
+    <string name="evento">Evento</string>
+    <string name="lista_de_eventos">Lista de Eventos</string>
+    <string name="cadastro_de_evento">cadastro de Evento</string>
+    <string name="ajuda">Ajuda</string>
+    <string name="nome_do_usuario">Nome do usuario</string>
+</resources>
 

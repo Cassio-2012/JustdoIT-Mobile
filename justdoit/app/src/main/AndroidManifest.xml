@@ -18,8 +18,12 @@
         <activity android:name=".view.evento.DetalhesEventoActivity" />
         <activity android:name=".view.evento.ListaEventosActivity" />
         <activity android:name=".view.evento.CadastroEventoActivity" />
-        <activity android:name=".cadastro.CadastroOneActivity">
-        <activity android:name=".view.evento.SplashActivity">
+        <activity android:name=".cadastro.CadastroOneActivity"/>
+
+        <activity android:name=".view.MainActivity"/>
+
+
+        <activity android:name=".view.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -17,4 +17,29 @@
     <string name="ou">or</string>
     <string name="entrar">sign in</string>
     <string name="voce">you</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="cadastro_de_eventos">" Events Registration"</string>
+    <string name="cep">" Zip code"</string>
+    <string name="nome_do_evento">" Event Name"</string>
+    <string name="logradouro">" Public place"</string>
+    <string name="complemento">Complement</string>
+    <string name="bairro">" District"</string>
+    <string name="localidade">" Locality"</string>
+    <string name="uf">UF</string>
+    <string name="data">Date</string>
+    <string name="hora">Hour</string>
+    <string name="descricao">" Description"</string>
+    <string name="descricao_do_evento">" Description of the event"</string>
+    <string name="cadastrar">" Register"</string>
+    <string name="recomendados">Recommended</string>
+    <string name="perfil">Profile</string>
+    <string name="evento">Event</string>
+    <string name="lista_de_eventos">" List of Events"</string>
+    <string name="cadastro_de_evento">Register Events</string>
+    <string name="ajuda">Help</string>
+    <string name="nome_do_usuario">" Username"</string>
+
+
 </resources>
