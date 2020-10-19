@@ -15,6 +15,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.just_do_it.R;
+import com.example.just_do_it.cadastro.CadastroOneActivity;
 import com.example.just_do_it.view.evento.CadastroEventoActivity;
 import com.example.just_do_it.view.evento.ListaEventosActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -73,6 +74,8 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
             case R.id.nav_person:
                 break;
             case R.id.nav_logout:
+                Intent cadastro = new Intent(this, CadastroOneActivity.class);
+                startActivity(cadastro);
                 break;
             case R.id.nav_all_events:
                 Intent listaEvento = new Intent(this, ListaEventosActivity.class);

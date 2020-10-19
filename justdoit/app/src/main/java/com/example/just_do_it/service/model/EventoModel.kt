@@ -1,6 +1,7 @@
 package com.example.just_do_it.service.model
 
 class EventoModel {
+
     var nome: String =""
     var cep: String =""
     var logradouro: String =""

@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
             val intent = Intent(this,
 
                 //tela que aparecerá apos a splashActivity
-               CadastroOneActivity::class.java)
+              MainActivity::class.java)
             startActivity(intent)
         },5000)
     }

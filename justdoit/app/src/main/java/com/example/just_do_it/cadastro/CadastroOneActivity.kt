@@ -28,7 +28,7 @@ class CadastroOneActivity : AppCompatActivity() {
         }
 
         if (messages.size > 0) {
-            Toast.makeText(this, messages[1], Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, messages[0], Toast.LENGTH_SHORT).show()
             return
         }
 

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cadastro.CadastroOneActivity">
-
+    tools:context=".view.LoginActivity">
     <LinearLayout
 
         android:id="@+id/header"
@@ -25,12 +24,12 @@
             android:src="@drawable/logo" />
 
         <TextView
-            android:id="@+id/cadastro_label"
+            android:id="@+id/login_label"
             style="@style/margin_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/cadastre_se"
+            android:text="@string/login"
             android:textColor="#000000"
             android:textSize="26sp"
             tools:layout_editor_absoluteX="39dp" />
@@ -39,35 +38,15 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
             tools:ignore="MissingConstraints">
 
-            <TextView
-                android:id="@+id/or"
-                style="@style/margin_default"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ou"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                tools:ignore="MissingConstraints" />
 
-            <TextView
-                android:id="@+id/enter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5sp"
-                android:layout_toRightOf="@id/or"
-                android:text="@string/entrar"
-                android:textColor="#FF0099FF"
-                android:textSize="16sp"
-                tools:ignore="MissingConstraints" />
 
             <LinearLayout
-                android:id="@+id/body_two"
+                android:id="@+id/body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical"
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp">
@@ -80,8 +59,7 @@
                     android:layout_marginTop="30dp"
                     android:text="@string/email_label"
                     android:textSize="16sp"
-
-                    app:layout_constraintTop_toBottomOf="@+id/body_two"
+                    app:layout_constraintTop_toBottomOf="@+id/body"
                     tools:ignore="MissingConstraints" />
 
                 <EditText
@@ -102,7 +80,6 @@
                     android:text="@string/senha_label"
                     android:textSize="16sp"
                     app:layout_constraintTop_toBottomOf="@+id/et_email"
-
                     tools:ignore="MissingConstraints" />
 
                 <EditText
@@ -126,14 +103,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/et_senha"
                     tools:ignore="MissingConstraints" />
                 <Button
-                    android:id="@+id/btn-cadatro-one"
+                    android:id="@+id/btn-login"
                     android:layout_width="match_parent"
                     android:layout_marginTop="40dp"
                     android:layout_height="36dp"
                     android:background="@drawable/btn_cadastro_blue"
                     android:fontFamily="sans-serif-black"
                     android:hint="@string/continuar"
-                    android:onClick="sendToNext"
+                    android:onClick="validarLogin"
                     android:textColorHint="#FFFFFF"
                     android:textSize="16sp"
                     app:layout_constraintTop_toBottomOf="@+id/body_two"
@@ -148,8 +125,4 @@
 
     </LinearLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-

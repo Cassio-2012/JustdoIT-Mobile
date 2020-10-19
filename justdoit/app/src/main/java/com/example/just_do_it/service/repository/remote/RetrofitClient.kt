@@ -9,11 +9,10 @@ class RetrofitClient private constructor() {
 
     companion object {
         private lateinit var retrofit: Retrofit
-        private val baseUrl = "https://jsonplaceholder.typicode.com/"  //url principal
-        //http://18.205.79.20:8080/   tem que ter barra no fim
+        private val baseUrl = "https://52.207.214.179:4040/"
 
 
-        fun getRetrofitInstance(): Retrofit {
+      private fun getRetrofitInstance(): Retrofit {
             //gerencia as comunicações com chamadas http, é ele que faz a conexão com a internet
             val httpClient = OkHttpClient.Builder()
             //se não tiver inciada será iniciada
@@ -24,6 +23,8 @@ class RetrofitClient private constructor() {
                     .addConverterFactory(GsonConverterFactory.create()) //converter dados json em dados kotlin
                     .build()
             }
+
+
             return retrofit
         }
 

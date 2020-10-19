@@ -44,5 +44,7 @@
     <string name="cadastro_de_evento">cadastro de Evento</string>
     <string name="ajuda">Ajuda</string>
     <string name="nome_do_usuario">Nome do usuario</string>
+    <string name="campo_obrigatorio">Campo obrigatorio</string>
+    <string name="login">Login</string>
 </resources>
 

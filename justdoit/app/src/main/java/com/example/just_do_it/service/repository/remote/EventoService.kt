@@ -1,5 +1,6 @@
 package com.example.just_do_it.service.repository.remote
 
+
 import com.example.just_do_it.service.model.EventoModel
 import retrofit2.Call
 import retrofit2.http.DELETE
