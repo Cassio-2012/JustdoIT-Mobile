@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.example.just_do_it.R
 import com.example.just_do_it.cadastro.CadastroOneActivity
+import com.example.just_do_it.login.login_activity
 import com.example.just_do_it.view.MainActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -16,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
             val intent = Intent(this,
 
                 //tela que aparecerá apos a splashActivity
-              MainActivity::class.java)
+              login_activity::class.java)
             startActivity(intent)
         },5000)
     }

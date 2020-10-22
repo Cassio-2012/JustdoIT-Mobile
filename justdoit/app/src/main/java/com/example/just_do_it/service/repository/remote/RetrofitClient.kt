@@ -9,10 +9,10 @@ class RetrofitClient private constructor() {
 
     companion object {
         private lateinit var retrofit: Retrofit
-        private val baseUrl = "https://52.207.214.179:4040/"
+        private val baseUrl = "https://springapp02.azurewebsites.net/"
 
 
-      private fun getRetrofitInstance(): Retrofit {
+        private fun getRetrofitInstance(): Retrofit {
             //gerencia as comunicações com chamadas http, é ele que faz a conexão com a internet
             val httpClient = OkHttpClient.Builder()
             //se não tiver inciada será iniciada

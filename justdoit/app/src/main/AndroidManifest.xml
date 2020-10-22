@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".login.login_activity"></activity>
-        <activity android:name=".view.LoginActivity" />
         <activity android:name=".cadastro.CadastroThreeActivity" />
         <activity android:name=".cadastro.CadastroTwoActivity" />
         <activity android:name=".view.evento.DetalhesEventoActivity" />

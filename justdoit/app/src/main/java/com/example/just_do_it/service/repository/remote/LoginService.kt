@@ -12,12 +12,19 @@ interface LoginService {
     @POST("user/login")//LoginUsuario,objet
     @FormUrlEncoded
     fun logar(
-
         @Field("nome")
         nome: String,
         @Field("senha")
-        senha: String
-    ): Call<LoginModel>
+        senha: String,
+        @Field("mensagemErro")
+        mensagemErro: String,
+        @Field("validated")
+        validated: Boolean
 
-    
+    ): Call<LoginModel>
+    @POST("/user/recaptcha")
+    @FormUrlEncoded
+    fun recaptcha(
+        @Field("token")
+        token:String): Call<String>
 }
