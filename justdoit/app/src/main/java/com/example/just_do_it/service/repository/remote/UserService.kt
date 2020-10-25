@@ -2,16 +2,21 @@ package com.example.just_do_it.service.repository.remote
 
 import com.example.just_do_it.service.model.UserModel
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface UserService {
-    @POST("/login")
-    @FormUrlEncoded
-    fun login(  @Field("email") email: String,
-                @Field("senha") senha: String
-    ): Call<UserModel>
+    //@POST("/login")
+    //@FormUrlEncoded
+   // fun login(  @Field("email") email: String,
+   //             @Field("senha") senha: String
+   // ): Call<UserModel>
+
+    @POST("/cadastro")
+    fun cadastroUser( @Body usuario:UserModel
+    ): Call<Void>
 
     fun cadastro(
         @Field("nome") nome: String,
