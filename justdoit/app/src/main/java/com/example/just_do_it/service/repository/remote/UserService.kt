@@ -9,6 +9,12 @@ import retrofit2.http.POST
 
 interface UserService {
 
+//    @POST("/cadastro")
+//    @FormUrlEncoded
+//    fun login(  @Field("email") email: String,
+//                @Field("senha") senha: String
+//    ): Call<UserModel>
+
 
     @POST("user/cadastro")
     fun cadastroUser( @Body usuario:UserModel

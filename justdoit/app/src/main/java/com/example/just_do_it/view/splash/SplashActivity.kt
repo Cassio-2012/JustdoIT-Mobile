@@ -21,9 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
                 //tela que aparecerá apos a splashActivity
 
-
                   login_activity::class.java)
-
             startActivity(intent)
         },3000)
     }
