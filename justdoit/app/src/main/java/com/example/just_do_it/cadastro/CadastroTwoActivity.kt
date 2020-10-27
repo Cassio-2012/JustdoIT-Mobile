@@ -14,9 +14,13 @@ class CadastroTwoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_two)
+
     }
 
     fun sendToNext(component: View) {
+        val userEmail = intent.extras?.getString("email")
+        val userSenha = intent.extras?.getString("senha")
+
         val nome = et_name.text.toString()
         val ocupacao = et_ocupacao.text.toString()
         val estado = et_estado.text.toString()
@@ -27,9 +31,7 @@ class CadastroTwoActivity : AppCompatActivity() {
             return
         }
 
-        val cadastro3 = Intent(this, CadastroThreeActivity::class.java)
-
-        startActivity(cadastro3)
+        irTela3(nome,estado,ocupacao,userEmail,userSenha)
     }
 
     fun backToPrevious(component: View) {
@@ -38,5 +40,16 @@ class CadastroTwoActivity : AppCompatActivity() {
 
         startActivity(cadastro1)
 
+    }
+
+    fun irTela3(nome:String,estado:String,ocupacao:String,userEmail:String?,userSenha:String?) {
+        val tela3 = Intent(this, CadastroThreeActivity::class.java)
+
+        tela3.putExtra("email",userEmail)
+        tela3.putExtra("nome", nome)
+        tela3.putExtra("_local", estado)
+        tela3.putExtra("title", ocupacao)
+        tela3.putExtra("senha",userSenha)
+        startActivity(tela3)
     }
 }

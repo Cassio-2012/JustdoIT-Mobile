@@ -9,9 +9,13 @@ import retrofit2.http.POST
 
 interface UserService {
 
-    @POST("/cadastro")
+
+    @POST("user/cadastro")
     fun cadastroUser( @Body usuario:UserModel
-    ): Call<Void>
+    ): Call<UserModel>
+
+
+
 
     fun cadastro(
         @Field("nome") nome: String,

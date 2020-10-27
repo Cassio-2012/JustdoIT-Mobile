@@ -10,9 +10,18 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.just_do_it.R
+import com.example.just_do_it.service.model.UserModel
+import com.example.just_do_it.service.repository.remote.LoginService
+import com.example.just_do_it.service.repository.remote.RetrofitClient
+import com.example.just_do_it.service.repository.remote.UserService
+import com.example.just_do_it.view.evento.Usuario
 import kotlinx.android.synthetic.main.activity_cadastro_three.*
+import kotlinx.android.synthetic.main.activity_cadastro_two.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-    private const val IMAGE_PICK_CODE = 1000;
+private const val IMAGE_PICK_CODE = 1000;
     private const val PERMISSION_CODE = 1001;
 
 class CadastroThreeActivity : AppCompatActivity() {
@@ -71,8 +80,42 @@ class CadastroThreeActivity : AppCompatActivity() {
 
 
     fun concluir(component: View) {
+        val remote = RetrofitClient.createService(UserService::class.java)
+        var userEmail = intent.extras?.getString("email")
+        var userNome = intent.extras?.getString("nome")
+        var userSenha = intent.extras?.getString("senha")
+        var userEstado = intent.extras?.getString("_local")
+        var userOcupacao = intent.extras?.getString("title")
 
-        Toast.makeText(this, "Cadastrado com sucesso!!!", Toast.LENGTH_SHORT).show()
+
+        userEmail = if(userEmail!=null){userEmail}else{""}
+        userNome = if(userNome!=null){userNome}else{""}
+        userSenha = if(userSenha!=null){userSenha}else{""}
+        userEstado = if(userEstado!=null){userEstado}else{""}
+        userOcupacao = if(userOcupacao!=null){userOcupacao}else{""}
+
+
+
+val usuario = UserModel()
+
+        usuario.email = userEmail
+        usuario.nome = userNome
+        usuario.senha = userSenha
+        usuario._local = userEstado
+        usuario.title = userOcupacao
+        val cadastro = remote.cadastroUser(usuario)
+        cadastro.enqueue(object : Callback<UserModel> {
+            override fun onFailure(call: Call<UserModel>, t: Throwable) {
+                Toast.makeText(baseContext, "Erro $t", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
+                val usuario = response.body()
+                Toast.makeText(baseContext, usuario?.nome,Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "Cadastrado com sucesso!!!", Toast.LENGTH_SHORT).show()
+            }
+        })
+
 
     }
 
