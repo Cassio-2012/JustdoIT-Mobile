@@ -1,19 +1,16 @@
 package com.example.just_do_it.login
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.just_do_it.R
+import com.example.just_do_it.service.model.LoginModel
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.LoginService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
-import com.example.just_do_it.service.repository.remote.Token_DTO
-import com.example.just_do_it.view.MainActivity
 import com.example.just_do_it.view.evento.Usuario
-import com.google.android.gms.safetynet.SafetyNet
 import kotlinx.android.synthetic.main.activity_login_activity.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +23,6 @@ class login_activity : AppCompatActivity() {
         const val TAG = "LoginActivity"
         const val SITE_KEY = "6LdaTsgZAAAAAKfNzRRnShR_oI_UOG3r2cubtiPk"
     }
-
 
     var login: String = ""
     var senha: String = ""
@@ -57,8 +53,12 @@ class login_activity : AppCompatActivity() {
 //                        }
 //                    }
 //            }
-            val logar = remote.logar(login,senha)
+//            LoginCaptcha()
+        var usuario = UserModel()
+            usuario.email = login
+            usuario.senha = senha
 
+            var logar = remote.loginUser(usuario)
             logar.enqueue(object : Callback<UserModel> {
                 override fun onFailure(call: Call<UserModel>, t: Throwable) {
                     Toast.makeText(baseContext, "Erro $t", Toast.LENGTH_SHORT).show()
@@ -69,37 +69,26 @@ class login_activity : AppCompatActivity() {
                     Toast.makeText(baseContext, usuario?.nome,Toast.LENGTH_SHORT).show()
                 }
             })
-            //LoginCaptcha()
-            //PassarTela()
+
         }
     }
 
 
-    fun LoginCaptcha() {
-        val loginrecaptcha = remote.logar(login, senha)
-        loginrecaptcha.enqueue(object : Callback<UserModel> {
-            override fun onFailure(call: Call<UserModel>, t: Throwable) {
-                Toast.makeText(baseContext, "Erro $t", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                val login = response.body()
-                if (login.hashCode().equals(200)) {
-                    startActivity(home)
-                }
-            }
-        })
-
-    }
-
-    fun PassarTela() {
-        val tela2 = Intent(this, MainActivity::class.java)
-
-
-       // tela2.putExtra("tentativas", tentativasVoltar)
-        tela2.putExtra("usuario", "Zé Ruela")
-
-        startActivity(tela2)
-    }
+//    fun LoginCaptcha() {
+//        val loginrecaptcha = remote.logar(login, senha, mensagemErro, validated)
+//        loginrecaptcha.enqueue(object : Callback<LoginModel> {
+//            override fun onFailure(call: Call<LoginModel>, t: Throwable) {
+//                Toast.makeText(baseContext, "Erro $t", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onResponse(call: Call<LoginModel>, response: Response<LoginModel>) {
+//                val login = response.body()
+//                if (login.hashCode().equals(200)) {
+//                    startActivity(home)
+//                }
+//            }
+//        })
+//
+//    }
 }
 

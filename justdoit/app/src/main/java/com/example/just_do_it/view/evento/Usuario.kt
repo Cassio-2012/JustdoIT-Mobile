@@ -9,6 +9,6 @@ data class Usuario(
     val senha:String,
     val titulo:String,
     val cidade:String,
-    val imagem:Blob
+    val photo: String
 
 )
