@@ -17,11 +17,7 @@
         app:menu="@menu/main_menu"
         android:layout_gravity="start"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp">
+
         <LinearLayout
             android:id="@+id/body"
             android:layout_width="match_parent"
@@ -32,19 +28,9 @@
             layout="@layout/toolbar"
             android:id="@+id/toobar"/>
 
-            <TextView
-                android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="home"
-                android:textColor="#000"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+
+
 
         </LinearLayout>
 
-
-
-    </ScrollView>
 </androidx.drawerlayout.widget.DrawerLayout>

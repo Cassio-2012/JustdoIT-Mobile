@@ -1,35 +1,30 @@
 package com.example.just_do_it.service.repository.remote
 
 
+import com.example.just_do_it.service.model.Cep
 import com.example.just_do_it.service.model.EventoModel
+import com.example.just_do_it.service.model.UserModel
 import retrofit2.Call
-import retrofit2.http.DELETE
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface EventoService {
-    @POST("cadastrarEvento")//cadastrarEvento,objet
-    @FormUrlEncoded
-    fun cadastroEvento(
-        nome: String,
-        cep: String,
-        logradouro: String,
-        complemento: String,
-        bairro: String,
-        localidade: String,
-        uf: String,
-        data: String,
-        horario: String,
-        descricao: String
-    ): Call<EventoModel>
+
+    @POST("cadastrarEvento")
+    fun postEvento(@Body evento:EventoModel): Call<EventoModel>
+
+    @GET("cep/{cep}")
+    fun getCep(@Path("cep") id:String): Call<Cep>
+
 
     @GET("eventos")
     fun listarEventos(): Call<List<EventoModel>>
 
-    @GET("eventos/codigo")
-    fun pesquisarEvento()
 
-    @DELETE("evento/codigo")
-    fun deletarEvento()
+    @GET("eventos/{codigo}")
+    fun pesquisarEvento(@Path("codigo") codigo:Long): Call<EventoModel>
+
+    @DELETE("evento/{codigo}")
+    fun deleteEvento(@Path("codigo") codigo: Long): Call<Void>
+
+
 }

@@ -2,20 +2,21 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer= "start"
     tools:context=".view.evento.CadastroEventoActivity"
-    >
+    tools:openDrawer="start">
+
     <com.google.android.material.navigation.NavigationView
-    android:id="@+id/nav_view"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    app:headerLayout="@layout/header"
-    app:menu="@menu/main_menu"
-    android:layout_gravity="start"/>
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:visibility="gone"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,303 +29,232 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="20dp"
-            >
-        <include
-            layout="@layout/toolbar"
-            android:id="@+id/toobar"/>
+            android:padding="20dp">
+
+            <include
+                android:id="@+id/toobar"
+                layout="@layout/toolbar" />
 
 
             <TextView
                 android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cadastro_de_eventos"
-                android:textColor="#000"
-                android:textSize="26sp"
-
-                android:textStyle="bold" />
+                style="@style/Titulo"
+                android:text="@string/cadastro_de_eventos" />
 
             <TextView
                 android:id="@+id/nomeDeEventoTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/textoInput"
                 android:text="@string/nome_do_evento"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@id/titulo" />
 
             <EditText
                 android:id="@+id/nomeDeEventoInput"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:paddingStart="10sp"
+                style="@style/cadastroEventoInput"
                 android:hint="@string/nome_do_evento"
-                android:textColor="@color/colorBlack"
-                android:background="@drawable/custom_input"
-                android:textSize="14sp"
                 app:layout_constraintTop_toBottomOf="@id/nomeDeEventoTxt"
 
                 />
 
-            <TextView
-                android:id="@+id/cepTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cep"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/nomeDeEventoInput" />
-
-            <EditText
-                android:id="@+id/cepInput"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:hint="@string/cep"
-                android:paddingStart="10sp"
-                android:background="@drawable/custom_input"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-
-                app:layout_constraintTop_toBottomOf="@id/cepTxt" />
-            <TextView
-                android:id="@+id/logradouroTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/logradouro"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/cepInput" />
-
-            <EditText
-                android:id="@+id/logradouroInput"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:hint="@string/logradouro"
-                android:paddingStart="10sp"
-                android:background="@drawable/custom_input"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-
-                app:layout_constraintTop_toBottomOf="@id/logradouroTxt" />
-            <TextView
-                android:id="@+id/complementoTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/complemento"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/logradouroInput" />
-
-            <EditText
-                android:id="@+id/complementoInput"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:hint="@string/complemento"
-                android:paddingStart="10sp"
-                android:background="@drawable/custom_input"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-
-                app:layout_constraintTop_toBottomOf="@id/complementoTxt" />
-            <TextView
-                android:id="@+id/bairroTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bairro"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/complementoInput" />
-
-            <EditText
-                android:id="@+id/bairroInput"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:hint="@string/bairro"
-                android:paddingStart="10sp"
-                android:background="@drawable/custom_input"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-
-                app:layout_constraintTop_toBottomOf="@id/bairroTxt" />
-            <TextView
-                android:id="@+id/localidadeTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/localidade"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/bairroInput" />
-
-            <EditText
-                android:id="@+id/localidadeInput"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:hint="@string/localidade"
-                android:paddingStart="10sp"
-                android:background="@drawable/custom_input"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-
-                app:layout_constraintTop_toBottomOf="@id/localidadeTxt" />
-            <TextView
-                android:id="@+id/ufTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/uf"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/localidadeInput" />
-
-            <EditText
-                android:id="@+id/ufInput"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:hint="@string/uf"
-                android:paddingStart="10sp"
-                android:background="@drawable/custom_input"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@id/ufTxt" />
-
             <LinearLayout
-                android:id="@+id/dataHoraInput"
+                android:id="@+id/campoCep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/ufInput">
 
-                <LinearLayout
-                    android:id="@+id/campoData"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@id/ufInput">
+                <TextView
+                    android:id="@+id/cepTxt"
+                    style="@style/textoInput"
+                    android:text="@string/cep"
+                    app:layout_constraintTop_toBottomOf="@id/nomeDeEventoInput" />
 
-                    <TextView
-                        android:id="@+id/dataTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/data"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/cepInput"
+                    style="@style/cadastroEventoInput"
+                    android:hint="@string/cep"
+                    android:paddingStart="10sp"
+                    app:layout_constraintTop_toBottomOf="@id/cepTxt" />
 
-                    <EditText
-                        android:id="@+id/dataInput"
-                        android:layout_width="150dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/custom_input"
-                        android:drawableEnd="@drawable/ic_calendar"
-                        android:layout_marginBottom="15dp"
-                        android:paddingStart="10sp"
-                        android:inputType="date"
-                        android:hint="@string/data_defalt"
-                        android:textSize="14sp"
-                        android:textColor="@color/colorBlack"
+                <Button
+                    android:id="@+id/botaoBuscarCep"
+                    style="@style/botoesCadastroEvento"
+                    android:background="@drawable/custom_button_blue"
+                    android:onClick="pesquisarCep"
+                    android:text="Pesquisar Cep" />
 
-                        app:layout_constraintTop_toBottomOf="@id/dataTxt" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/campoHora"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@id/ufInput">
-
-                    <TextView
-                        android:id="@+id/horaTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/hora"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
-
-                    <EditText
-                        android:id="@+id/horaInput"
-                        android:layout_width="150dp"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="15dp"
-                        android:paddingStart="10sp"
-                        android:background="@drawable/custom_input"
-                        android:inputType="time"
-                        android:hint="@string/hora_default"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14sp"
-                        app:layout_constraintTop_toBottomOf="@id/dataTxt" />
-
-                </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/descricaoTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/descricao"
-                android:layout_marginBottom="10dp"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/dataHoraInput" />
-
-            <EditText
-                android:id="@+id/descricaoInput"
+            <LinearLayout
+                android:id="@+id/posCep"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="15dp"
-                android:paddingStart="10sp"
-                android:hint="@string/descricao_do_evento"
-                android:background="@drawable/custom_input"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@id/descricaoTxt" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <Button
-                android:id="@+id/cadastrarBotao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/custom_button_blue"
-                android:padding="15dp"
-                android:text="@string/cadastrar"
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:onClick="validarCadastro"
-                app:layout_constraintTop_toBottomOf="@id/descricaoInput"
-                android:textAllCaps="false"/>
 
+                <TextView
+                    android:id="@+id/logradouroTxt"
+                    style="@style/textoInput"
+                    android:text="@string/logradouro"
+                    app:layout_constraintTop_toBottomOf="@id/cepInput" />
+
+                <TextView
+                    android:id="@+id/logradouroInput"
+                    style="@style/cadastroEventoInput"
+                    android:hint="@string/logradouro"
+                    app:layout_constraintTop_toBottomOf="@id/logradouroTxt" />
+
+                <TextView
+                    android:id="@+id/complementoTxt"
+                    style="@style/textoInput"
+                    android:text="@string/complemento"
+                    app:layout_constraintTop_toBottomOf="@id/logradouroInput" />
+
+                <EditText
+                    android:id="@+id/complementoInput"
+                    style="@style/cadastroEventoInput"
+                    android:hint="@string/complemento"
+                    app:layout_constraintTop_toBottomOf="@id/complementoTxt" />
+
+                <TextView
+                    android:id="@+id/bairroTxt"
+                    style="@style/textoInput"
+                    android:text="@string/bairro"
+                    app:layout_constraintTop_toBottomOf="@id/complementoInput" />
+
+                <TextView
+                    android:id="@+id/bairroInput"
+                    style="@style/cadastroEventoInput"
+                    android:hint="@string/bairro"
+                    app:layout_constraintTop_toBottomOf="@id/bairroTxt" />
+
+                <TextView
+                    android:id="@+id/localidadeTxt"
+                    style="@style/textoInput"
+                    android:text="@string/localidade"
+                    app:layout_constraintTop_toBottomOf="@id/bairroInput" />
+
+                <TextView
+                    android:id="@+id/localidadeInput"
+                    style="@style/cadastroEventoInput"
+                    android:hint="@string/localidade"
+                    android:padding="11dp"
+                    app:layout_constraintTop_toBottomOf="@id/localidadeTxt" />
+
+                <TextView
+                    android:id="@+id/ufTxt"
+                    style="@style/textoInput"
+                    android:text="@string/uf"
+                    app:layout_constraintTop_toBottomOf="@id/localidadeInput" />
+
+                <TextView
+                    android:id="@+id/ufInput"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/custom_input"
+                    android:hint="@string/uf"
+                    android:padding="11dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@id/ufTxt" />
+
+                <LinearLayout
+                    android:id="@+id/dataHoraInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/ufInput">
+
+                    <LinearLayout
+                        android:id="@+id/campoData"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@id/ufInput">
+
+                        <TextView
+                            android:id="@+id/dataTxt"
+                            style="@style/textoInput"
+                            android:text="@string/data" />
+
+                        <EditText
+                            android:id="@+id/dataInput"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/custom_input"
+                            android:drawableEnd="@drawable/ic_calendar"
+                            android:hint="@string/data_defalt"
+                            android:inputType="date"
+                            android:paddingStart="10sp"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp"
+
+                            app:layout_constraintTop_toBottomOf="@id/dataTxt" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/campoHora"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@id/ufInput">
+
+                        <TextView
+                            android:id="@+id/horaTxt"
+                            style="@style/textoInput"
+                            android:text="@string/hora" />
+
+                        <EditText
+                            android:id="@+id/horaInput"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/custom_input"
+                            android:hint="@string/hora_default"
+                            android:inputType="time"
+                            android:paddingStart="10sp"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp"
+                            app:layout_constraintTop_toBottomOf="@id/dataTxt" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/descricaoTxt"
+                    style="@style/textoInput"
+                    android:text="@string/descricao"
+                    app:layout_constraintTop_toBottomOf="@id/dataHoraInput" />
+
+                <EditText
+                    android:id="@+id/descricaoInput"
+                    style="@style/cadastroEventoInput"
+                    android:hint="@string/descricao_do_evento"
+                    android:paddingStart="10sp"
+                    app:layout_constraintTop_toBottomOf="@id/descricaoTxt" />
+
+                <Button
+                    android:id="@+id/cadastrarBotao"
+                   style="@style/botoesCadastroEvento"
+                    android:background="@drawable/custom_button_blue"
+                    android:onClick="validarCadastro"
+                    android:text="@string/cadastrar"
+                    app:layout_constraintTop_toBottomOf="@id/descricaoInput" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/finalizarBotao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+               style="@style/botoesCadastroEvento"
                 android:background="@drawable/custom_button_gray"
-                android:padding="15dp"
-                android:text="@string/cancelar"
-                android:textAllCaps="false"
-                android:textColor="#fff"
-                android:textSize="18sp"
                 android:onClick="cancelarCadastro"
+                android:text="@string/cancelar"
                 app:layout_constraintTop_toBottomOf="@id/cadastrarBotao" />
         </LinearLayout>
 

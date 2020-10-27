@@ -17,4 +17,44 @@
 
     </style>
 
+    <style name="cadastroEventoInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:paddingStart">10sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:background">@drawable/custom_input</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Titulo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <style name="textoInput">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+
+    <style name="botoesCadastroEvento">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/custom_button_gray</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:padding">15sp</item>
+
+    </style>
 </resources>

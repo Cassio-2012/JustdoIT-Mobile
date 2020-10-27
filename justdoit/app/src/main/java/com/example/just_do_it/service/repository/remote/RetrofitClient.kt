@@ -13,14 +13,14 @@ class RetrofitClient private constructor() {
 
 
         private fun getRetrofitInstance(): Retrofit {
-            //gerencia as comunicações com chamadas http, é ele que faz a conexão com a internet
+
             val httpClient = OkHttpClient.Builder()
-            //se não tiver inciada será iniciada
+
             if (!::retrofit.isInitialized) {
                 retrofit = Retrofit.Builder()
                     .baseUrl(baseUrl)
-                    .client(httpClient.build())  //é quem gerencia as conexoes http
-                    .addConverterFactory(GsonConverterFactory.create()) //converter dados json em dados kotlin
+                    .client(httpClient.build())
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build()
             }
 
@@ -28,7 +28,7 @@ class RetrofitClient private constructor() {
             return retrofit
         }
 
-        fun <S> createService(serviceClass: Class<S>): S { //função generica para criar qualquer serviço
+        fun <S> createService(serviceClass: Class<S>): S {
             return getRetrofitInstance().create(serviceClass)
 
         }

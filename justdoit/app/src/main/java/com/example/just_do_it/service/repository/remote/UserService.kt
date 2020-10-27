@@ -8,11 +8,6 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface UserService {
-    //@POST("/login")
-    //@FormUrlEncoded
-   // fun login(  @Field("email") email: String,
-   //             @Field("senha") senha: String
-   // ): Call<UserModel>
 
     @POST("/cadastro")
     fun cadastroUser( @Body usuario:UserModel
