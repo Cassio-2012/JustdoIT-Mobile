@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.example.just_do_it.R
-import com.example.just_do_it.cadastro.CadastroOneActivity
-import com.example.just_do_it.login.login_activity
-import com.example.just_do_it.service.model.UserModel
-import com.example.just_do_it.view.MainActivity
+import com.example.just_do_it.login.Login_activity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
 
                 //tela que aparecerá apos a splashActivity
 
-                  login_activity::class.java)
+                  Login_activity::class.java)
             startActivity(intent)
         },3000)
     }

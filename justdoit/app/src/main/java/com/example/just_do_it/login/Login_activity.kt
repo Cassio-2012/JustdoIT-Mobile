@@ -6,17 +6,20 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.just_do_it.R
+import com.example.just_do_it.cadastro.CadastroOneActivity
+import com.example.just_do_it.cadastro.CadastroTwoActivity
 import com.example.just_do_it.service.model.LoginModel
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.LoginService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
+import com.example.just_do_it.view.evento.ListaEventosActivity
 import com.example.just_do_it.view.evento.Usuario
 import kotlinx.android.synthetic.main.activity_login_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class login_activity : AppCompatActivity() {
+class Login_activity : AppCompatActivity() {
 
     val remote = RetrofitClient.createService(LoginService::class.java)
     companion object {
@@ -65,8 +68,11 @@ class login_activity : AppCompatActivity() {
                 }
 
                 override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                    val usuario = response.body()
-                    Toast.makeText(baseContext, usuario?.nome,Toast.LENGTH_SHORT).show()
+
+                    val usuario:UserModel? = response.body()
+
+                    goToEvents(usuario);
+
                 }
             })
 
@@ -90,5 +96,27 @@ class login_activity : AppCompatActivity() {
 //        })
 //
 //    }
+
+    fun goToEvents(usuario:UserModel?) {
+
+        val events = Intent(this, ListaEventosActivity::class.java)
+
+        events.putExtra("id", usuario?.id)
+        events.putExtra("email", usuario?.email)
+        events.putExtra("nome", usuario?.nome)
+        events.putExtra("photo", usuario?.photo)
+
+        startActivity(events)
+
+    }
+
+    fun goToRegister(component:View) {
+
+        val register = Intent(this, CadastroOneActivity::class.java)
+
+        startActivity(register)
+
+    }
+
 }
 

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.just_do_it.R
+import com.example.just_do_it.login.Login_activity
 import kotlinx.android.synthetic.main.activity_cadastro_one.*
 
 class CadastroOneActivity : AppCompatActivity() {
@@ -20,9 +21,11 @@ class CadastroOneActivity : AppCompatActivity() {
 
         var messages: MutableList<String> = ArrayList()
 
-//        if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-//            messages.add("Preencha o campo e-mail corretamente")
-//        }
+
+        if(email.isEmpty()) {
+            messages.add("Por favor preencha o campo e-mail corretamente")
+        }
+
         if (senha.length < 8) {
             messages.add("Sua senha precisa ser mais forte")
         }
@@ -31,15 +34,24 @@ class CadastroOneActivity : AppCompatActivity() {
             Toast.makeText(this, messages[0], Toast.LENGTH_SHORT).show()
             return
         }
-        irTela2(email,senha)
+        goScreen2(email,senha)
     }
-    fun irTela2(email:String,senha:String) {
-        val tela2 = Intent(this, CadastroTwoActivity::class.java)
 
+    fun goScreen2(email:String,senha:String) {
+        val tela2 = Intent(this, CadastroTwoActivity::class.java)
 
         tela2.putExtra("email", email)
         tela2.putExtra("senha", senha)
 
         startActivity(tela2)
     }
+
+    fun goToLogin(component: View) {
+
+        val login = Intent(this, Login_activity::class.java)
+
+        startActivity(login)
+
+    }
+
 }

@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".cadastro.CadastroThreeActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -88,6 +93,7 @@
             android:id="@+id/buttons-layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="40dp"
             android:orientation="vertical">
 
@@ -120,7 +126,7 @@
                 android:id="@+id/tv_jump"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="300dp"
+                android:layout_marginLeft="250dp"
                 android:layout_marginTop="26dp"
                 android:text="@string/pular"
                 android:onClick="concluir"
@@ -133,6 +139,8 @@
 
 
     </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

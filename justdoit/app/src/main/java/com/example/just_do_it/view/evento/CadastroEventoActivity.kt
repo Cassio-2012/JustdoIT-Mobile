@@ -9,6 +9,7 @@ import com.example.just_do_it.R
 import com.example.just_do_it.service.model.Cep
 
 import com.example.just_do_it.service.model.EventoModel
+import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.view.GenericActivity
@@ -20,10 +21,15 @@ import retrofit2.Response
 
 class CadastroEventoActivity : GenericActivity() {
  val remote  = RetrofitClient.createService(EventoService::class.java)
+    var idUser: Int? = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_evento)
+
+        idUser = intent.extras?.getInt("id").toString().toInt();
+
         start()
     }
 
@@ -114,7 +120,7 @@ class CadastroEventoActivity : GenericActivity() {
 
             )
 
-            val cadEvento = remote.postEvento(evento)
+            val cadEvento = remote.postEvento(evento, idUser)
         cadEvento.enqueue(object : Callback<EventoModel> {
             override fun onResponse(call: Call<EventoModel>, response: Response<EventoModel>) {
 
@@ -137,8 +143,10 @@ class CadastroEventoActivity : GenericActivity() {
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        return super.onNavigationItemSelected(menuItem)
+        val usuarioLogado = loadUser()
+        return super.onNavigationItemSelectedAdapt(menuItem, usuarioLogado)
     }
+
 fun pesquisarCep(v: View){
     if(cepInput.text.isEmpty() ){
             cepInput.error = getString(R.string.campo_obrigatorio)
@@ -171,5 +179,24 @@ fun pesquisarCep(v: View){
         })
     }
 }
+
+    fun loadUser(): UserModel {
+
+        val userID = intent.extras?.getInt("id")
+        val userNome = intent.extras?.getString("nome")
+        val userEmail = intent.extras?.getString("email")
+//        val userPhoto = intent.extras?.getString("photo")
+
+        val usuarioLogado = UserModel()
+
+        usuarioLogado.id = userID
+        usuarioLogado.nome = userNome
+        usuarioLogado.email = userEmail
+//        usuarioLogado.photo = userPhoto
+//
+
+        return usuarioLogado
+
+    }
 
 }

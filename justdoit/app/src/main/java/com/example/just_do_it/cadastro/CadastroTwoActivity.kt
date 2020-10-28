@@ -31,7 +31,7 @@ class CadastroTwoActivity : AppCompatActivity() {
             return
         }
 
-        irTela3(nome,estado,ocupacao,userEmail,userSenha)
+        goScreen3(nome,estado,ocupacao,userEmail,userSenha)
     }
 
     fun backToPrevious(component: View) {
@@ -42,12 +42,12 @@ class CadastroTwoActivity : AppCompatActivity() {
 
     }
 
-    fun irTela3(nome:String,estado:String,ocupacao:String,userEmail:String?,userSenha:String?) {
+    fun goScreen3(nome:String,estado:String,ocupacao:String,userEmail:String?,userSenha:String?) {
         val tela3 = Intent(this, CadastroThreeActivity::class.java)
 
         tela3.putExtra("email",userEmail)
         tela3.putExtra("nome", nome)
-        tela3.putExtra("_local", estado)
+        tela3.putExtra("local", estado)
         tela3.putExtra("title", ocupacao)
         tela3.putExtra("senha",userSenha)
         startActivity(tela3)

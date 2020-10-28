@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.just_do_it.R
+import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.LoginService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
@@ -84,7 +85,7 @@ class CadastroThreeActivity : AppCompatActivity() {
         var userEmail = intent.extras?.getString("email")
         var userNome = intent.extras?.getString("nome")
         var userSenha = intent.extras?.getString("senha")
-        var userEstado = intent.extras?.getString("_local")
+        var userEstado = intent.extras?.getString("local")
         var userOcupacao = intent.extras?.getString("title")
 
 
@@ -101,7 +102,7 @@ val usuario = UserModel()
         usuario.email = userEmail
         usuario.nome = userNome
         usuario.senha = userSenha
-        usuario._local = userEstado
+        usuario.local = userEstado
         usuario.title = userOcupacao
         val cadastro = remote.cadastroUser(usuario)
         cadastro.enqueue(object : Callback<UserModel> {
@@ -110,9 +111,9 @@ val usuario = UserModel()
             }
 
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
-                val usuario = response.body()
-                Toast.makeText(baseContext, usuario?.nome,Toast.LENGTH_SHORT).show()
-                Toast.makeText(baseContext, "Cadastrado com sucesso!!!", Toast.LENGTH_SHORT).show()
+
+                goToLogin();
+
             }
         })
 
@@ -124,6 +125,14 @@ val usuario = UserModel()
         val cadastro2 = Intent(this, CadastroTwoActivity::class.java)
 
         startActivity(cadastro2)
+
+    }
+
+    fun goToLogin() {
+
+        val login = Intent(this, Login_activity::class.java)
+
+        startActivity(login)
 
     }
 

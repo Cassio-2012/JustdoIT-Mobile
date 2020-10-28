@@ -3,20 +3,24 @@ package com.example.vamos_lucrar.utils
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.just_do_it.R
 import com.example.just_do_it.service.model.EventoModel
+import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.view.evento.DetalhesEventoActivity
+import com.example.just_do_it.view.evento.ListaEventosActivity
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<EventoModel>) :
+class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<EventoModel>,
+var usuario: UserModel) :
     ArrayAdapter<EventoModel>(contexto, resouces, itens) {
 
     val remote = RetrofitClient.createService(EventoService::class.java)
@@ -50,21 +54,33 @@ class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<Evento
     }
 
     fun remove(contato: EventoModel) {
+
+
+
+
         val codigo = contato.codigo
-        val deletarContato = codigo?.let { remote.deleteEvento(it) }
+        val deletarContato = remote.deleteEvento(codigo, usuario.id)
+
         if (deletarContato != null) {
             deletarContato.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                 if(response.code() == 404){
-                     Toast.makeText(
-                         contexto, "Erro ao deletar, serviço indisponivel no momento ${response.code()}",
-                         Toast.LENGTH_SHORT
-                     ).show()
-                 }else{   Toast.makeText(
-                        contexto, "Deletado com sucesso ${response.code()}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+
+                    if(response.code() == 403){
+                        Toast.makeText(
+                            contexto, "Você não é o administrador deste evento.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return
+                    }
+
+                    if(response.code() == 200){
+                        Toast.makeText(
+                            contexto, "Evento deletado com sucesso .",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                    }
+
                 }
 
                 override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -72,17 +88,29 @@ class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<Evento
                         contexto, "Erro ao deletar",
                         Toast.LENGTH_SHORT
                     ).show()
+                    return
                 }
 
             })
         }
 
         super.remove(contato)
+
     }
+
+
+
 
     fun detalhesItem(position: Long) {
         SharedPreferences(contexto).storeId("codigo", position)
-       contexto.startActivity(Intent(contexto, DetalhesEventoActivity::class.java))
+
+        val detalhes = Intent(contexto, DetalhesEventoActivity::class.java)
+
+        detalhes.putExtra("email",usuario.email)
+        detalhes.putExtra("nome", usuario.nome)
+        detalhes.putExtra("id", usuario.id)
+
+        contexto.startActivity(detalhes)
 
     }
 

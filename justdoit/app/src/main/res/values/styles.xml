@@ -57,4 +57,17 @@
         <item name="android:padding">15sp</item>
 
     </style>
+
+
+    <style name="logo_cadastro">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_marginStart">310dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:src">@drawable/logo</item>
+
+    </style>
+
+
 </resources>

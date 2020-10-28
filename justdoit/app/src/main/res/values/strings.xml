@@ -9,7 +9,7 @@
     <string name="ocupacao">Ocupação ou título</string>
     <string name="str_nome">Nome</string>
     <string name="cidade">Cidade e estado onde mora</string>
-    <string name="about">Nos conte mais um pouco sobre</string>
+    <string name="about">Nos conte mais um pouco sobre <b>você</b></string>
     <string name="foto">Agora adicione uma foto para o seu pefil</string>
     <string name="carregar"><b>Carregar foto</b></string>
     <string name="pular">Pular</string>

@@ -6,6 +6,7 @@ import android.widget.ListView
 import android.widget.Toast
 import com.example.just_do_it.R
 import com.example.just_do_it.service.model.EventoModel
+import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.view.GenericActivity
@@ -15,11 +16,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ListaEventosActivity : GenericActivity() {
+
     val remote = RetrofitClient.createService(EventoService::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_eventos)
         start()
+        val usuarioLogado = loadUser()
         val listaEventos = remote.listarEventos()
         listaEventos.enqueue(object : Callback<List<EventoModel>> {
             override fun onResponse(
@@ -47,7 +50,8 @@ class ListaEventosActivity : GenericActivity() {
 
                         )
                     )
-                    listView.adapter = MyAdapter(this@ListaEventosActivity, R.layout.row, list)
+                    listView.adapter = MyAdapter(this@ListaEventosActivity, R.layout.row, list,
+                    usuarioLogado)
 
                 }
             }
@@ -68,8 +72,31 @@ class ListaEventosActivity : GenericActivity() {
 
     }
 
+    fun loadUser(): UserModel {
+
+        val userID = intent.extras?.getInt("id")
+        val userNome = intent.extras?.getString("nome")
+        val userEmail = intent.extras?.getString("email")
+//        val userPhoto = intent.extras?.getString("photo")
+
+        val usuarioLogado = UserModel()
+
+        usuarioLogado.id = userID?.toInt()
+        usuarioLogado.nome = userNome
+        usuarioLogado.email = userEmail
+//        usuarioLogado.photo = userPhoto
+
+
+
+        return usuarioLogado
+
+    }
+
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        return super.onNavigationItemSelected(menuItem)
+
+        val usuarioLogado = loadUser();
+
+        return super.onNavigationItemSelectedAdapt(menuItem, usuarioLogado)
     }
 
 

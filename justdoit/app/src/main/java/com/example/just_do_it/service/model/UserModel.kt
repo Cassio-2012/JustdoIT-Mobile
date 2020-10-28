@@ -1,12 +1,12 @@
 package com.example.just_do_it.service.model
 
 class UserModel {
-    var id: Int = 0
-    var nome: String = ""
-    var email: String = ""
-    var photo: String = ""
-    var senha: String = ""
-    var sobre: String = ""
-    var _local: String = ""
-    var title: String = ""
+    var id: Int? = null
+    var nome: String? = null
+    var email: String? = null
+    var photo: String? = null
+    var senha: String? = null
+    var sobre: String? = null
+    var local: String? = null
+    var title: String? = null
 }

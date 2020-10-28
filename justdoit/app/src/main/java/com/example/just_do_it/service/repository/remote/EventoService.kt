@@ -9,8 +9,9 @@ import retrofit2.http.*
 
 interface EventoService {
 
-    @POST("cadastrarEvento")
-    fun postEvento(@Body evento:EventoModel): Call<EventoModel>
+    @POST("cadastrarEvento/{id}")
+    fun postEvento(@Body evento:EventoModel,
+                   @Path("id")id:Int?): Call<EventoModel>
 
     @GET("cep/{cep}")
     fun getCep(@Path("cep") id:String): Call<Cep>
@@ -23,8 +24,9 @@ interface EventoService {
     @GET("eventos/{codigo}")
     fun pesquisarEvento(@Path("codigo") codigo:Long): Call<EventoModel>
 
-    @DELETE("evento/{codigo}")
-    fun deleteEvento(@Path("codigo") codigo: Long): Call<Void>
+    @DELETE("evento/{codigo}/{id}")
+    fun deleteEvento(@Path("codigo") codigo: Long?,
+                     @Path("id") id: Int?  ): Call<Void>
 
 
 }
