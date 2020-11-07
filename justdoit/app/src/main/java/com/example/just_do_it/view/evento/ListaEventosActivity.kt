@@ -102,7 +102,8 @@ class ListaEventosActivity : GenericActivity() {
             startActivity(login)
             return false
 
-        }else {
+        }
+        else {
             return super.onNavigationItemSelected(menuItem)
         }
     }

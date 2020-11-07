@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.just_do_it.cadastro.CadastroOneActivity
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.LoginService
@@ -19,6 +21,7 @@ import retrofit2.Response
 class Login_activity : AppCompatActivity() {
 
     val remote = RetrofitClient.createService(LoginService::class.java)
+
     companion object {
         const val TAG = "LoginActivity"
         const val SITE_KEY = "6LdaTsgZAAAAAKfNzRRnShR_oI_UOG3r2cubtiPk"
@@ -43,7 +46,13 @@ class Login_activity : AppCompatActivity() {
         if (user != null) {
             goToEvents()
         }
+
+
+//        loginBotao.setOnClickListener { chooseThemeDialog() }
+
+
     }
+
 
     fun Login(Componente: View) {
         login = loginInput.text.toString()
@@ -103,7 +112,7 @@ class Login_activity : AppCompatActivity() {
 //        })
 //
 //    }
-
+//
     fun prepareEvents(usuario:UserModel?) {
 
 
@@ -138,6 +147,38 @@ class Login_activity : AppCompatActivity() {
         startActivity(register)
 
     }
+
+
+
+
+//    private fun chooseThemeDialog() {
+//
+//        val builder = AlertDialog.Builder(this)
+//        builder.setTitle("Chose the Theme")
+//        val styles = arrayOf("Light","Dark")
+//        val checkedItem = 0
+//
+//        builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
+//
+//            when (which) {
+//                0 -> {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                    delegate.applyDayNight()
+//                    dialog.dismiss()
+//                }
+//                1 -> {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//                    delegate.applyDayNight()
+//
+//                    dialog.dismiss()
+//                }
+//
+//            }
+//        }
+//
+//        val dialog = builder.create()
+//        dialog.show()
+//    }
 
 }
 

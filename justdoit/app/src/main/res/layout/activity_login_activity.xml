@@ -151,19 +151,6 @@
                 android:layout_weight="2"
                 android:layout_height="wrap_content"/>
 
-            <Button
-                android:id="@+id/loginBotao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/custom_button_blue"
-                android:padding="15dp"
-                android:text="Entrar"
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:onClick="Login"
-                app:layout_constraintTop_toBottomOf="@id/descricaoInput"
-                android:textAllCaps="false"/>
 
             <ImageView
                 android:layout_marginTop="10dp"
@@ -176,8 +163,20 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/loginBotao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button_blue"
+            android:padding="15dp"
+            android:text="Entrar"
+            android:textColor="#ffff"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/descricaoInput"
+            android:textAllCaps="false"/>
 
-
+        
 
     </LinearLayout>
     </ScrollView>
