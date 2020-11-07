@@ -3,6 +3,7 @@ package com.example.just_do_it.view
 
 import android.os.Bundle
 import com.example.just_do_it.R
+import com.example.just_do_it.login.SessionManager
 
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
@@ -13,6 +14,8 @@ class MainActivity : GenericActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val shared = SessionManager()
+        shared.init(getApplicationContext())
         start()
 }
 }

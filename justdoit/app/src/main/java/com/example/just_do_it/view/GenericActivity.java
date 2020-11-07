@@ -1,5 +1,6 @@
 package com.example.just_do_it.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.just_do_it.R;
 import com.example.just_do_it.cadastro.CadastroOneActivity;
+import com.example.just_do_it.login.Login_activity;
+import com.example.just_do_it.login.SessionManager;
 import com.example.just_do_it.service.model.UserModel;
 import com.example.just_do_it.view.evento.CadastroEventoActivity;
 import com.example.just_do_it.view.evento.ListaEventosActivity;
@@ -33,6 +36,7 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
     //variaveis de sessão
     UserModel usuario;
     ListaEventosActivity eventosActivity;
+    SessionManager sessionManager;
 
     public void start() {
         //Hoocks
@@ -69,7 +73,6 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        usuario = eventosActivity.loadUser();
 
         switch (menuItem.getItemId()) {
             case R.id.nav_home:
@@ -80,71 +83,17 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
                 break;
             case R.id.nav_person:
                 break;
-            case R.id.nav_logout:
-                Intent cadastro = new Intent(this, CadastroOneActivity.class);
-                startActivity(cadastro);
-                break;
-            case R.id.nav_all_events:
-                Intent listaEvento = new Intent(this, ListaEventosActivity.class);
-                startActivity(listaEvento);
-                break;
-            case R.id.nav_cad_event:
-                Intent cadastroEvento = new Intent(this, CadastroEventoActivity.class);
-
-                cadastroEvento.putExtra("id", usuario.getId());
-                cadastroEvento.putExtra("email", usuario.getEmail());
-                cadastroEvento.putExtra("nome", usuario.getNome());
-                cadastroEvento.putExtra("photo", usuario.getPhoto());
-
-                System.out.println("usuario: "+usuario.getEmail());
-
-                startActivity(cadastroEvento);
-                break;
-            case R.id.nav_help:
-                break;
-        }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    public boolean onNavigationItemSelectedAdapt(@NonNull MenuItem menuItem, UserModel user) {
-
-         usuario = user;
-
-        switch (menuItem.getItemId()) {
-            case R.id.nav_home:
-                Intent home = new Intent(this, MainActivity.class);
-                startActivity(home);
-                break;
-            case R.id.nav_recomendation:
-                break;
-            case R.id.nav_person:
-                break;
-            case R.id.nav_logout:
-                Intent cadastro = new Intent(this, CadastroOneActivity.class);
-                startActivity(cadastro);
-                break;
-            case R.id.nav_all_events:
-                Intent listaEvento = new Intent(this, ListaEventosActivity.class);
-
-
-                listaEvento.putExtra("id", usuario.getId());
-                listaEvento.putExtra("email", usuario.getEmail());
-                listaEvento.putExtra("nome", usuario.getNome());
-//                listaEvento.putExtra("photo", usuario.getPhoto());
-
-                startActivity(listaEvento);
-                break;
-            case R.id.nav_cad_event:
-                Intent cadastroEvento = new Intent(this, CadastroEventoActivity.class);
-
-
-                cadastroEvento.putExtra("id", usuario.getId());
-                cadastroEvento.putExtra("email", usuario.getEmail());
-                cadastroEvento.putExtra("nome", usuario.getNome());
-//                cadastroEvento.putExtra("photo", usuario.getPhoto());
+//            case R.id.nav_logout:
 //
+//                return false;
 
+
+            case R.id.nav_all_events:
+                Intent listaEvento = new Intent(this, ListaEventosActivity.class);
+                startActivity(listaEvento);
+                break;
+            case R.id.nav_cad_event:
+                Intent cadastroEvento = new Intent(this, CadastroEventoActivity.class);
                 startActivity(cadastroEvento);
                 break;
             case R.id.nav_help:
@@ -153,6 +102,37 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+//    public boolean onNavigationItemSelectedAdapt(@NonNull MenuItem menuItem, Context context) {
+//
+//
+//        switch (menuItem.getItemId()) {
+//            case R.id.nav_home:
+//                Intent home = new Intent(this, MainActivity.class);
+//                startActivity(home);
+//                break;
+//            case R.id.nav_recomendation:
+//                break;
+//            case R.id.nav_person:
+//                break;
+//            case R.id.nav_logout:
+//                return true;
+//
+//            case R.id.nav_all_events:
+//                Intent listaEvento = new Intent(this, ListaEventosActivity.class);
+//                startActivity(listaEvento);
+//                break;
+//            case R.id.nav_cad_event:
+//                Intent cadastroEvento = new Intent(this, CadastroEventoActivity.class);
+//                startActivity(cadastroEvento);
+//                break;
+//            case R.id.nav_help:
+//                break;
+//        }
+//        drawerLayout.closeDrawer(GravityCompat.START);
+//        return true;
+//    }
 
 }
 

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.just_do_it.R
+import com.example.just_do_it.login.SessionManager
 import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
@@ -19,11 +20,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<EventoModel>,
-var usuario: UserModel) :
+class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<EventoModel>) :
     ArrayAdapter<EventoModel>(contexto, resouces, itens) {
 
     val remote = RetrofitClient.createService(EventoService::class.java)
+    val sessionManager = SessionManager();
+    val usuarioLogado = loadUser();
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -56,12 +58,11 @@ var usuario: UserModel) :
     fun remove(contato: EventoModel) {
 
 
-
-
         val codigo = contato.codigo
-        val deletarContato = remote.deleteEvento(codigo, usuario.id)
+        val id = usuarioLogado.id
+        val deletarContato = remote.deleteEvento(codigo, id)
 
-        if (deletarContato != null) {
+
             deletarContato.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
 
@@ -78,6 +79,7 @@ var usuario: UserModel) :
                             contexto, "Evento deletado com sucesso .",
                             Toast.LENGTH_SHORT
                         ).show()
+                        remover(contato)
 
                     }
 
@@ -92,23 +94,31 @@ var usuario: UserModel) :
                 }
 
             })
-        }
 
+
+
+
+    }
+
+    fun remover(contato: EventoModel) {
         super.remove(contato)
+
+    }
+
+        fun loadUser(): UserModel {
+
+        sessionManager.init(contexto)
+
+        return sessionManager.loadUser()
 
     }
 
 
 
-
     fun detalhesItem(position: Long) {
-        SharedPreferences(contexto).storeId("codigo", position)
-
         val detalhes = Intent(contexto, DetalhesEventoActivity::class.java)
 
-        detalhes.putExtra("email",usuario.email)
-        detalhes.putExtra("nome", usuario.nome)
-        detalhes.putExtra("id", usuario.id)
+        SharedPreferences(contexto).storeId("codigo", position)
 
         contexto.startActivity(detalhes)
 

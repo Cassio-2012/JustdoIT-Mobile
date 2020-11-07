@@ -1,23 +1,20 @@
 package com.example.just_do_it.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.just_do_it.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.just_do_it.cadastro.CadastroOneActivity
-import com.example.just_do_it.cadastro.CadastroTwoActivity
-import com.example.just_do_it.service.model.LoginModel
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.LoginService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.view.evento.ListaEventosActivity
-import com.example.just_do_it.view.evento.Usuario
 import kotlinx.android.synthetic.main.activity_login_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class Login_activity : AppCompatActivity() {
 
@@ -32,10 +29,20 @@ class Login_activity : AppCompatActivity() {
     var mensagemErro: String = ""
     var validated: Boolean = false
     lateinit var home: Intent
+    val manager = SessionManager()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_activity)
+        setContentView(com.example.just_do_it.R.layout.activity_login_activity)
+
+        manager.init(getApplicationContext())
+
+        val user: String? = manager.read("nome", null)
+
+        if (user != null) {
+            goToEvents()
+        }
     }
 
     fun Login(Componente: View) {
@@ -71,7 +78,7 @@ class Login_activity : AppCompatActivity() {
 
                     val usuario:UserModel? = response.body()
 
-                    goToEvents(usuario);
+                    prepareEvents(usuario);
 
                 }
             })
@@ -97,14 +104,28 @@ class Login_activity : AppCompatActivity() {
 //
 //    }
 
-    fun goToEvents(usuario:UserModel?) {
+    fun prepareEvents(usuario:UserModel?) {
+
+
+        val manager = SessionManager()
+        manager.init(getApplicationContext())
+
+        val user: String? = manager.read("usuario", null)
+
+        if (user == null) {
+            manager.writeUser(usuario!!)
+            goToEvents()
+        }
+        else {
+            Toast.makeText(this, "erro de conexão", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+    }
+
+    fun goToEvents() {
 
         val events = Intent(this, ListaEventosActivity::class.java)
-
-        events.putExtra("id", usuario?.id)
-        events.putExtra("email", usuario?.email)
-        events.putExtra("nome", usuario?.nome)
-        events.putExtra("photo", usuario?.photo)
 
         startActivity(events)
 

@@ -1,10 +1,14 @@
 package com.example.just_do_it.view.evento
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ListView
 import android.widget.Toast
 import com.example.just_do_it.R
+import com.example.just_do_it.login.Login_activity
+import com.example.just_do_it.login.SessionManager
 import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
@@ -15,14 +19,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class ListaEventosActivity : GenericActivity() {
+
+    val sessionManager = SessionManager()
 
     val remote = RetrofitClient.createService(EventoService::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_eventos)
         start()
-        val usuarioLogado = loadUser()
+//        val usuarioLogado = loadUser()
         val listaEventos = remote.listarEventos()
         listaEventos.enqueue(object : Callback<List<EventoModel>> {
             override fun onResponse(
@@ -50,8 +57,7 @@ class ListaEventosActivity : GenericActivity() {
 
                         )
                     )
-                    listView.adapter = MyAdapter(this@ListaEventosActivity, R.layout.row, list,
-                    usuarioLogado)
+                    listView.adapter = MyAdapter(this@ListaEventosActivity, R.layout.row, list)
 
                 }
             }
@@ -64,6 +70,8 @@ class ListaEventosActivity : GenericActivity() {
         })
 
 
+
+
     }
 
     override fun onBackPressed() {
@@ -71,32 +79,40 @@ class ListaEventosActivity : GenericActivity() {
 
 
     }
-
-    fun loadUser(): UserModel {
-
-        val userID = intent.extras?.getInt("id")
-        val userNome = intent.extras?.getString("nome")
-        val userEmail = intent.extras?.getString("email")
-//        val userPhoto = intent.extras?.getString("photo")
-
-        val usuarioLogado = UserModel()
-
-        usuarioLogado.id = userID?.toInt()
-        usuarioLogado.nome = userNome
-        usuarioLogado.email = userEmail
-//        usuarioLogado.photo = userPhoto
-
-
-
-        return usuarioLogado
-
-    }
+//
+//    fun loadUser(): UserModel {
+//
+//        sessionManager.init(applicationContext)
+//
+//        return sessionManager.loadUser()
+//       if(!super.onNavigationItemSelected(menuItem)) {
+//
+//            val login = Intent(this, Login_activity::class.java)
+//            removeUser();
+//            startActivity(login)
+//        }
+//    }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
 
-        val usuarioLogado = loadUser();
+        if(menuItem.itemId == R.id.nav_logout) {
 
-        return super.onNavigationItemSelectedAdapt(menuItem, usuarioLogado)
+            val login = Intent(this, Login_activity::class.java)
+            removeUser();
+            startActivity(login)
+            return false
+
+        }else {
+            return super.onNavigationItemSelected(menuItem)
+        }
+    }
+
+    fun removeUser() {
+
+        sessionManager.init(applicationContext)
+
+        sessionManager.removeUser()
+
     }
 
 

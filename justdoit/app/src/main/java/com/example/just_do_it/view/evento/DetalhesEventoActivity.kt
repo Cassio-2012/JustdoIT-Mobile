@@ -1,11 +1,14 @@
 package com.example.just_do_it.view.evento
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ListView
 import android.widget.Toast
 import com.example.just_do_it.R
+import com.example.just_do_it.login.Login_activity
+import com.example.just_do_it.login.SessionManager
 import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
@@ -20,10 +23,13 @@ import retrofit2.Response
 
 class DetalhesEventoActivity : GenericActivity() {
     val remote = RetrofitClient.createService(EventoService::class.java)
+    val sessionManager = SessionManager()
+    var usuarioLogado = UserModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_evento)
+        usuarioLogado = loadUser()
         start()
 
         val codigo = SharedPreferences(this).getId("codigo")
@@ -57,27 +63,33 @@ class DetalhesEventoActivity : GenericActivity() {
 
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        val usuarioLogado = loadUser()
 
-        return super.onNavigationItemSelectedAdapt(menuItem, usuarioLogado)
+        if(menuItem.itemId == R.id.nav_logout) {
+
+            val login = Intent(this, Login_activity::class.java)
+            removeUser();
+            startActivity(login)
+            return false
+
+        }else {
+            return super.onNavigationItemSelected(menuItem)
+        }
     }
+
 
     fun loadUser(): UserModel {
 
-        val userID = intent.extras?.getInt("id")
-        val userNome = intent.extras?.getString("nome")
-        val userEmail = intent.extras?.getString("email")
-//        val userPhoto = intent.extras?.getString("photo")
+        sessionManager.init(applicationContext)
 
-        val usuarioLogado = UserModel()
+        return sessionManager.loadUser()
 
-        usuarioLogado.id = userID?.toInt()
-        usuarioLogado.nome = userNome
-        usuarioLogado.email = userEmail
-//        usuarioLogado.photo = userPhoto
+    }
 
+    fun removeUser() {
 
-        return usuarioLogado
+        sessionManager.init(applicationContext)
+
+        sessionManager.removeUser()
 
     }
 
