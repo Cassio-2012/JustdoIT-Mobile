@@ -1,20 +1,26 @@
 package com.example.just_do_it.view.evento
 
-import android.content.Context
+import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Base64
 import android.view.MenuItem
+import android.widget.LinearLayout
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.login.SessionManager
 import com.example.just_do_it.service.model.EventoModel
-import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.view.GenericActivity
 import com.example.vamos_lucrar.utils.MyAdapter
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -71,7 +77,6 @@ class ListaEventosActivity : GenericActivity() {
 
 
 
-
     }
 
     override fun onBackPressed() {
@@ -103,10 +108,52 @@ class ListaEventosActivity : GenericActivity() {
             return false
 
         }
+        if(menuItem.itemId == R.id.nav_dark) {
+            chooseThemeDialog()
+            return false
+        }
         else {
             return super.onNavigationItemSelected(menuItem)
         }
     }
+
+    fun chooseThemeDialog() {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Chose the Theme")
+        val styles = arrayOf("Light","Dark")
+        val checkedItem = 0
+
+        builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
+
+            val linear = findViewById<LinearLayout>(R.id.body)
+            val tv = findViewById<TextView>(R.id.titulo)
+            val row = findViewById<LinearLayout>(R.id.ll_row)
+
+            when (which) {
+                0 -> {
+
+
+                    linear.setBackgroundColor(Color.parseColor("#ffffff"))
+                    row.setBackgroundColor(Color.parseColor("#ffffff"))
+                    tv.setTextColor(Color.parseColor("#000000"))
+                    dialog.dismiss()
+                }
+                1 -> {
+
+                    linear.setBackgroundColor(Color.parseColor("#000000"))
+                    row.setBackgroundColor(Color.parseColor("#000000"))
+                    tv.setTextColor(Color.parseColor("#A9A9A9"))
+                    dialog.dismiss()
+                }
+
+            }
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
 
     fun removeUser() {
 
@@ -115,6 +162,26 @@ class ListaEventosActivity : GenericActivity() {
         sessionManager.removeUser()
 
     }
+
+//    fun testeImagem() {
+//
+//        val manager = SessionManager()
+//        manager.init(getApplicationContext())
+//
+//        val photo: String? = manager.read("photo", null)
+//        val pureBase64Encoded: String? = photo?.substring(photo.indexOf(",")  + 1);
+//
+//        val decodedBytes: ByteArray = Base64.decode(pureBase64Encoded, Base64.DEFAULT)
+//
+//        val decodedBitmap: Bitmap =
+//            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+//
+//
+//
+//    }
+
+
+
 
 
 }

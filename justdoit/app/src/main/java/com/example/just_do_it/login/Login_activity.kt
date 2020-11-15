@@ -48,9 +48,6 @@ class Login_activity : AppCompatActivity() {
         }
 
 
-//        loginBotao.setOnClickListener { chooseThemeDialog() }
-
-
     }
 
 
@@ -151,34 +148,6 @@ class Login_activity : AppCompatActivity() {
 
 
 
-//    private fun chooseThemeDialog() {
-//
-//        val builder = AlertDialog.Builder(this)
-//        builder.setTitle("Chose the Theme")
-//        val styles = arrayOf("Light","Dark")
-//        val checkedItem = 0
-//
-//        builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
-//
-//            when (which) {
-//                0 -> {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//                    delegate.applyDayNight()
-//                    dialog.dismiss()
-//                }
-//                1 -> {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//                    delegate.applyDayNight()
-//
-//                    dialog.dismiss()
-//                }
-//
-//            }
-//        }
-//
-//        val dialog = builder.create()
-//        dialog.show()
-//    }
 
 }
 

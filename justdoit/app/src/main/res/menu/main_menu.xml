@@ -20,6 +20,11 @@
                     android:id="@+id/nav_person"
                     android:icon="@drawable/ic_person"
                     android:title="@string/perfil" />
+
+                    <item
+                        android:id="@+id/nav_dark"
+                        android:icon="@drawable/moon"
+                        android:title="Dark Mode" />
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/ic_logout"
@@ -27,6 +32,7 @@
                 </group>
             </menu>
         </item>
+
 
 
         <item android:title="@string/evento">

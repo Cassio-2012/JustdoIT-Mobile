@@ -163,6 +163,7 @@
 
         </LinearLayout>
 
+
         <Button
             android:id="@+id/loginBotao"
             android:layout_width="match_parent"
@@ -170,12 +171,12 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_button_blue"
             android:padding="15dp"
+            android:onClick="Login"
             android:text="Entrar"
             android:textColor="#ffff"
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/descricaoInput"
             android:textAllCaps="false"/>
-
         
 
     </LinearLayout>
