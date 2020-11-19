@@ -119,10 +119,7 @@ class DetalhesEventoActivity : GenericActivity() {
     fun deletarEvento(v: View) {
         var codigo = SharedPreferences(this).getId("codigo")
         val deletarContato = remote.deleteEvento(codigo, usuarioLogado.id)
-        Toast.makeText(
-            this@DetalhesEventoActivity, "${codigo} , ${usuarioLogado.id}",
-            Toast.LENGTH_SHORT
-        ).show()
+    
         deletarContato.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.code() == 403) {
@@ -171,12 +168,6 @@ class DetalhesEventoActivity : GenericActivity() {
                     call: Call<ConvidadoModel>,
                     response: Response<ConvidadoModel>
                 ) {
-
-                    Toast.makeText(
-                        this@DetalhesEventoActivity,
-                        "${response.body()}",
-                        Toast.LENGTH_LONG
-                    ).show()
                     if (response.code() == 200) {
                         Toast.makeText(
                             this@DetalhesEventoActivity,
