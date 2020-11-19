@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
 
+
     //variaveis de sessão
     UserModel usuario;
     ListaEventosActivity eventosActivity;
@@ -56,6 +59,10 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
+
+
+
+
     }
 
 
@@ -72,9 +79,7 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-
-        switch (menuItem.getItemId()) {
+            switch (menuItem.getItemId()) {
             case R.id.nav_home:
                 Intent home = new Intent(this, MainActivity.class);
                 startActivity(home);
@@ -83,10 +88,6 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
                 break;
             case R.id.nav_person:
                 break;
-//            case R.id.nav_logout:
-//
-//                return false;
-
 
             case R.id.nav_all_events:
                 Intent listaEvento = new Intent(this, ListaEventosActivity.class);
@@ -102,37 +103,5 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-//    public boolean onNavigationItemSelectedAdapt(@NonNull MenuItem menuItem, Context context) {
-//
-//
-//        switch (menuItem.getItemId()) {
-//            case R.id.nav_home:
-//                Intent home = new Intent(this, MainActivity.class);
-//                startActivity(home);
-//                break;
-//            case R.id.nav_recomendation:
-//                break;
-//            case R.id.nav_person:
-//                break;
-//            case R.id.nav_logout:
-//                return true;
-//
-//            case R.id.nav_all_events:
-//                Intent listaEvento = new Intent(this, ListaEventosActivity.class);
-//                startActivity(listaEvento);
-//                break;
-//            case R.id.nav_cad_event:
-//                Intent cadastroEvento = new Intent(this, CadastroEventoActivity.class);
-//                startActivity(cadastroEvento);
-//                break;
-//            case R.id.nav_help:
-//                break;
-//        }
-//        drawerLayout.closeDrawer(GravityCompat.START);
-//        return true;
-//    }
-
 }
 

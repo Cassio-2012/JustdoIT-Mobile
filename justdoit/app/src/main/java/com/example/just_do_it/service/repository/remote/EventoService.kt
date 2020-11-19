@@ -2,6 +2,7 @@ package com.example.just_do_it.service.repository.remote
 
 
 import com.example.just_do_it.service.model.Cep
+import com.example.just_do_it.service.model.ConvidadoModel
 import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.model.UserModel
 import retrofit2.Call
@@ -26,7 +27,17 @@ interface EventoService {
 
     @DELETE("evento/{codigo}/{id}")
     fun deleteEvento(@Path("codigo") codigo: Long?,
-                     @Path("id") id: Int?  ): Call<Void>
+                     @Path("id") id: Int?): Call<Void>
+
+
+    @POST("/convidado/{codigo}/{id}")
+    fun postConvidado(@Path("codigo") codigo:Long?,
+                      @Body participante: ConvidadoModel,
+                      @Path("id") id: Int?): Call<ConvidadoModel>
+
+
+    @GET("convidado/{codigo}")
+    fun listarConvidados(@Path("codigo") codigo:Long?): Call<List<ConvidadoModel>>
 
 
 }

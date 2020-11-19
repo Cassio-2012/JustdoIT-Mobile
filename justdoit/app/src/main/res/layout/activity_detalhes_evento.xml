@@ -61,7 +61,7 @@
               android:gravity="center"
               android:paddingTop="20dp"
               android:textColor="@color/colorBlack"
-              android:text="[Online]Big Data: arquitetando um Data Lake no mundo real"
+              android:text=""
               android:textStyle="bold"
               android:textSize="20sp" />
       </TableRow>
@@ -75,7 +75,7 @@
                   android:gravity="center"
                   android:textColor="@color/colorGray"
                   android:paddingTop="8dp"
-                  android:text="Quinta - Feira 10 Setembro 12:00"
+                  android:text=""
                   android:textSize="14sp" />
           </TableRow>
           <TableRow>
@@ -88,7 +88,7 @@
                   android:textColor="@color/colorGray"
                   android:gravity="center"
                   android:paddingTop="8dp"
-                  android:text="Avenida Paulista nº3300"
+                  android:text=""
                   android:textSize="14sp" />
           </TableRow>
           <TableRow>
@@ -101,10 +101,7 @@
                   android:gravity="center"
                   android:paddingTop="8dp"
                   android:textColor="@color/colorBlack"
-                  android:text="
-Acompanhe este evento ONLINE e GRATUITO no Canal .NET para conhecer mais sobre Data Lake e sua utilização em cenários de Big Data!
-
-Saiba quais os benefícios, vantagens e desvantagens de contruir um Data Lake no seu ambiente corporativo. E como contruir um data lake da melhor forma, utilizando todas as camadas adequadas para uma boa arquitetura buscando obter um roadmap de sucesso!"
+                  android:text=""
                   android:textSize="20sp" />
               </TableRow>
           <TableRow>
@@ -118,16 +115,61 @@ Saiba quais os benefícios, vantagens e desvantagens de contruir um Data Lake no
                   android:background="@drawable/custom_button_pink"
                   android:padding="15dp"
                   android:text="Participar"
+                  android:onClick="participarEvento"
                   android:textAllCaps="false"
                   android:textColor="#ffff"
                   android:textSize="18sp"
                   app:layout_constraintTop_toBottomOf= "parent"
                   app:layout_constraintLeft_toLeftOf= "parent"
                   app:layout_constraintRight_toRightOf = "parent"/>
-              </TableRow>
 
+              </TableRow>
+          <TableRow>
+              <Button
+                  android:id="@+id/deletarEvento"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:layout_marginTop="10dp"
+                  android:background="@drawable/btn_cadastro_blue"
+                  android:padding="15dp"
+                  android:text="Deletar"
+                  android:onClick="deletarEvento"
+                  android:textAllCaps="false"
+                  android:textColor="#ffff"
+                  android:textSize="18sp"
+                  app:layout_constraintTop_toBottomOf= "parent"
+                  app:layout_constraintLeft_toLeftOf= "parent"
+                  app:layout_constraintRight_toRightOf = "parent"/>
+          </TableRow>
+          <TableRow>
+              <Button
+                  android:id="@+id/listaParticipantes"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:layout_marginTop="10dp"
+                  android:background="@drawable/btn_cadastro_blue"
+                  android:padding="15dp"
+                  android:text="Lista de participantes"
+                  android:onClick="listarParticipantes"
+                  android:textAllCaps="false"
+                  android:textColor="#ffff"
+                  android:textSize="18sp"
+                  app:layout_constraintTop_toBottomOf= "parent"
+                  app:layout_constraintLeft_toLeftOf= "parent"
+                  app:layout_constraintRight_toRightOf = "parent"/>
+          </TableRow>
+<TableRow>
+    <ImageView
+        android:id="@+id/photoPerfil"
+        android:src="@drawable/object"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+</TableRow>
 
       </TableLayout>
+
 
   </LinearLayout>
 </ScrollView>

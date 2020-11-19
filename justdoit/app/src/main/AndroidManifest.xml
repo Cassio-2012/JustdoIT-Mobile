@@ -15,7 +15,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login.Login_activity"></activity>
+        <activity android:name=".view.evento.HeaderActivity"></activity>
+        <activity android:name=".view.evento.ListaParticipantesActivity" />
+        <activity android:name=".login.Login_activity" />
         <activity android:name=".cadastro.CadastroOneActivity" />
         <activity android:name=".cadastro.CadastroThreeActivity" />
         <activity android:name=".cadastro.CadastroTwoActivity" />

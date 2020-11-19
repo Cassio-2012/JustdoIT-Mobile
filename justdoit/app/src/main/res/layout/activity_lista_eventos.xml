@@ -9,8 +9,6 @@
     tools:context=".view.evento.ListaEventosActivity"
     tools:openDrawer="start">
 
-
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -44,7 +42,9 @@
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent" >
+
+            </ListView>
         </LinearLayout>
 
 

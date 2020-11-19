@@ -34,20 +34,22 @@ class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<Evento
 
         val imageView: ImageView = view.findViewById(R.id.image)
         val titleTextView: TextView = view.findViewById(R.id.textView)
-        val descriptionTextView: TextView = view.findViewById(R.id.textView2)
-        val deletar: ImageView = view.findViewById(R.id.deletar)
+       // val descriptionTextView: TextView = view.findViewById(R.id.textView2)
+        //val deletar: ImageView = view.findViewById(R.id.deletar)
         val mais: ImageView = view.findViewById(R.id.mais)
 
         var mItem: EventoModel = itens[position]
 
        // imageView.setImageDrawable(mItem.img?.let { contexto.resources.getDrawable(it) })
         titleTextView.text = mItem.nome
-        descriptionTextView.text = mItem.codigo.toString()
+        //descriptionTextView.text = mItem.codigo.toString()
 
 
-        deletar.setOnClickListener(View.OnClickListener {
+      /*  deletar.setOnClickListener(View.OnClickListener {
             remove(itens[position])
         })
+
+       */
         mais.setOnClickListener(View.OnClickListener {
             itens[position].codigo?.let { it1 -> detalhesItem(it1) }
         })
@@ -56,7 +58,6 @@ class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<Evento
     }
 
     fun remove(contato: EventoModel) {
-
 
         val codigo = contato.codigo
         val id = usuarioLogado.id
@@ -80,11 +81,8 @@ class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<Evento
                             Toast.LENGTH_SHORT
                         ).show()
                         remover(contato)
-
                     }
-
                 }
-
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     Toast.makeText(
                         contexto, "Erro ao deletar",
@@ -92,12 +90,7 @@ class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<Evento
                     ).show()
                     return
                 }
-
             })
-
-
-
-
     }
 
     fun remover(contato: EventoModel) {

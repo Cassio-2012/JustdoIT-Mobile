@@ -11,6 +11,25 @@ data class EventoModel(
     var uf: String?,
     var dataEvento: String?,
     var horario: String?,
-    var descricao: String?
+    var descricao: String?,
+    var convidados: Array<String>?,
+    var adm: Int?
 
 )
+
+/*
+{
+    "codigo": 36,
+    "nome": "Evento teste",
+    "cep": "05886120",
+    "logradouro": "Rua Luís de Oliveira",
+    "bairro": "Jardim Dom José",
+    "localidade": "São Paulo",
+    "uf": "SP",
+    "complemento": "Casa 3",
+    "dataEvento": null,
+    "horario": "",
+    "descricao": "Evento show",
+    "convidados": [],
+    "adm": null
+}*/

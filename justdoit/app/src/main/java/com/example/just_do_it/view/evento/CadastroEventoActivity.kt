@@ -30,9 +30,7 @@ class CadastroEventoActivity : GenericActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_evento)
-
         usuario = loadUser()
-
         start()
     }
 
@@ -107,7 +105,6 @@ class CadastroEventoActivity : GenericActivity() {
                 validacaoInput--
             }
         if(validacaoInput == 10){
-
             val evento = EventoModel(
                 null,
                 nomeEvento,
@@ -119,8 +116,9 @@ class CadastroEventoActivity : GenericActivity() {
                 uf,
                 dataEvento,
                 horaEvento,
-                descricaoEvento
-
+                descricaoEvento,
+                convidados = null,
+                adm = usuario.id
             )
 
             val cadEvento = remote.postEvento(evento, usuario.id)

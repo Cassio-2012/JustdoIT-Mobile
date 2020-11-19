@@ -92,7 +92,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                >
 
 
                 <TextView
@@ -103,7 +104,7 @@
 
                 <TextView
                     android:id="@+id/logradouroInput"
-                    style="@style/cadastroEventoInput"
+                    style="@style/cadastroEventoInputDigitavel"
                     android:hint="@string/logradouro"
                     app:layout_constraintTop_toBottomOf="@id/logradouroTxt" />
 
@@ -127,7 +128,7 @@
 
                 <TextView
                     android:id="@+id/bairroInput"
-                    style="@style/cadastroEventoInput"
+                    style="@style/cadastroEventoInputDigitavel"
                     android:hint="@string/bairro"
                     app:layout_constraintTop_toBottomOf="@id/bairroTxt" />
 

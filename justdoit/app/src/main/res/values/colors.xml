@@ -8,4 +8,6 @@
     <color name="colorBlack">#000</color>
     <color name="colorGray">#B4B9BD</color>
     <color name="statusBarColor">#FF3266</color>
+    <color name="colorBlueSombra">#002640</color>
+
 </resources>

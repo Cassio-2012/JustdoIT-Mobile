@@ -2,12 +2,11 @@ package com.example.just_do_it.view.evento
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Base64
 import android.view.MenuItem
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
@@ -15,65 +14,69 @@ import android.widget.Toast
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.login.SessionManager
+import com.example.just_do_it.service.model.ConvidadoModel
 import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.view.GenericActivity
 import com.example.vamos_lucrar.utils.MyAdapter
-import org.w3c.dom.Text
+import com.example.vamos_lucrar.utils.MyAdapterConvidado
+import com.example.vamos_lucrar.utils.SharedPreferences
+import kotlinx.android.synthetic.main.activity_detalhes_evento.*
+import kotlinx.android.synthetic.main.activity_lista_participantes.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
-class ListaEventosActivity : GenericActivity() {
+class ListaParticipantesActivity : GenericActivity()  {
     val sessionManager = SessionManager()
     val remote = RetrofitClient.createService(EventoService::class.java)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lista_eventos)
+        setContentView(R.layout.activity_lista_participantes)
         start()
-//        val usuarioLogado = loadUser()
-        val listaEventos = remote.listarEventos()
-        listaEventos.enqueue(object : Callback<List<EventoModel>> {
-            override fun onResponse(
-                call: Call<List<EventoModel>>,
-                response: Response<List<EventoModel>>
-            ) {
 
+        var codigo = SharedPreferences(this).getId("codigo")
+        val listaConvidados = remote.listarConvidados(codigo)
+        listaConvidados.enqueue(object : Callback<List<ConvidadoModel>> {
+            override fun onResponse(
+                call: Call<List<ConvidadoModel>>,
+                response: Response<List<ConvidadoModel>>
+            ) {
+            if(response.body().isNullOrEmpty() ){
+
+              vazio.visibility = View.VISIBLE
+
+            }else{
                 val listView = findViewById<ListView>(R.id.listView)
-                val list = mutableListOf<EventoModel>()
+                val list = mutableListOf<ConvidadoModel>()
 
                 response.body()?.forEach {
                     list.add(
-                        EventoModel(
-                            it.codigo,
-                            it.nome,
-                            it.cep,
-                            it.logradouro,
-                            it.complemento,
-                            it.bairro,
-                            it.localidade,
-                            it.uf,
-                            it.dataEvento,
-                            it.horario,
-                            it.descricao,
-                            it.convidados,
-                            it.adm
-
+                        ConvidadoModel(
+                            it.id,
+                            it.nomeConvidado,
+                            it.email
                         )
                     )
-                    listView.adapter = MyAdapter(this@ListaEventosActivity, R.layout.row, list)
-                    
+                    listView.adapter = MyAdapterConvidado(
+                        this@ListaParticipantesActivity,
+                        R.layout.row_convidados,
+                        list
+                    )
 
                 }
-            }
+            }}
 
 
-            override fun onFailure(call: Call<List<EventoModel>>, t: Throwable) {
-                Toast.makeText(applicationContext, "erro ao listar contatos ${t.message}", Toast.LENGTH_SHORT)
+            override fun onFailure(call: Call<List<ConvidadoModel>>, t: Throwable) {
+                Toast.makeText(
+                    applicationContext,
+                    "erro ao listar contatos ${t.message}",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         })
@@ -87,19 +90,6 @@ class ListaEventosActivity : GenericActivity() {
 
 
     }
-//
-//    fun loadUser(): UserModel {
-//
-//        sessionManager.init(applicationContext)
-//
-//        return sessionManager.loadUser()
-//       if(!super.onNavigationItemSelected(menuItem)) {
-//
-//            val login = Intent(this, Login_activity::class.java)
-//            removeUser();
-//            startActivity(login)
-//        }
-//    }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
 
@@ -135,7 +125,6 @@ class ListaEventosActivity : GenericActivity() {
 
             when (which) {
                 0 -> {
-
 
                     linear.setBackgroundColor(Color.parseColor("#ffffff"))
                     row.setBackgroundColor(Color.parseColor("#ffffff"))
