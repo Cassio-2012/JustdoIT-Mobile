@@ -1,13 +1,12 @@
 package com.example.just_do_it.view.evento
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+
 import android.os.Bundle
-import android.util.Base64
+
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
+
 import android.widget.Toast
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
@@ -17,14 +16,14 @@ import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
+import com.example.just_do_it.utils.SharedPreferences
 import com.example.just_do_it.view.GenericActivity
-import com.example.vamos_lucrar.utils.SharedPreferences
-import kotlinx.android.synthetic.main.activity_cadastro_three.*
+
 import kotlinx.android.synthetic.main.activity_detalhes_evento.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
+
 
 
 class DetalhesEventoActivity : GenericActivity() {
@@ -117,11 +116,13 @@ class DetalhesEventoActivity : GenericActivity() {
     }
 
     fun deletarEvento(v: View) {
-        var codigo = SharedPreferences(this).getId("codigo")
-        val deletarContato = remote.deleteEvento(codigo, usuarioLogado.id)
-    
+        var codigo = SharedPreferences(this).getId("codigo").toInt()
+        val deletarContato = remote.deleteEvento(codigo,usuarioLogado.id)
+
         deletarContato.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
+                Toast.makeText(this@DetalhesEventoActivity, "${response.body()} ${response.code()}", Toast.LENGTH_SHORT).show()
                 if (response.code() == 403) {
                     Toast.makeText(
                         this@DetalhesEventoActivity, "Você não é o administrador deste evento.",
@@ -200,5 +201,6 @@ class DetalhesEventoActivity : GenericActivity() {
         startActivity(detalhes)
 
     }
+
 
 }

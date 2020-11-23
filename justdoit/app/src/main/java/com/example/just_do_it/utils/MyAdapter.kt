@@ -1,4 +1,4 @@
-package com.example.vamos_lucrar.utils
+package com.example.just_do_it.utils
 
 import android.content.Context
 import android.content.Intent
@@ -59,7 +59,7 @@ class MyAdapter(var contexto: Context, var resouces: Int, var itens: List<Evento
 
     fun remove(contato: EventoModel) {
 
-        val codigo = contato.codigo
+        val codigo = contato.codigo?.toInt()
         val id = usuarioLogado.id
         val deletarContato = remote.deleteEvento(codigo, id)
 

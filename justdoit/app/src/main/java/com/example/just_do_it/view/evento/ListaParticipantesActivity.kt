@@ -18,11 +18,10 @@ import com.example.just_do_it.service.model.ConvidadoModel
 import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
+import com.example.just_do_it.utils.MyAdapterConvidado
+import com.example.just_do_it.utils.SharedPreferences
 import com.example.just_do_it.view.GenericActivity
-import com.example.vamos_lucrar.utils.MyAdapter
-import com.example.vamos_lucrar.utils.MyAdapterConvidado
-import com.example.vamos_lucrar.utils.SharedPreferences
-import kotlinx.android.synthetic.main.activity_detalhes_evento.*
+
 import kotlinx.android.synthetic.main.activity_lista_participantes.*
 import retrofit2.Call
 import retrofit2.Callback

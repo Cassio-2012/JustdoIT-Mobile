@@ -1,4 +1,4 @@
-package com.example.vamos_lucrar.utils
+package com.example.just_do_it.utils
 
 import android.content.Context
 import android.content.Intent

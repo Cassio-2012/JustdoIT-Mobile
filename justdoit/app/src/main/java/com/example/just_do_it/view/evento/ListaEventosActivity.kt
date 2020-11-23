@@ -18,8 +18,9 @@ import com.example.just_do_it.login.SessionManager
 import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
+import com.example.just_do_it.utils.MyAdapter
 import com.example.just_do_it.view.GenericActivity
-import com.example.vamos_lucrar.utils.MyAdapter
+
 import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,7 +38,7 @@ class ListaEventosActivity : GenericActivity() {
         start()
 //        val usuarioLogado = loadUser()
         val listaEventos = remote.listarEventos()
-        listaEventos.enqueue(object : Callback<List<EventoModel>> {
+         listaEventos.enqueue(object : Callback<List<EventoModel>> {
             override fun onResponse(
                 call: Call<List<EventoModel>>,
                 response: Response<List<EventoModel>>

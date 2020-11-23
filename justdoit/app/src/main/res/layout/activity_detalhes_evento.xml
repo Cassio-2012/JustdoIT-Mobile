@@ -160,14 +160,6 @@
                   app:layout_constraintLeft_toLeftOf= "parent"
                   app:layout_constraintRight_toRightOf = "parent"/>
           </TableRow>
-<TableRow>
-    <ImageView
-        android:id="@+id/photoPerfil"
-        android:src="@drawable/object"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-</TableRow>
-
       </TableLayout>
 
 

@@ -26,7 +26,7 @@ interface EventoService {
     fun pesquisarEvento(@Path("codigo") codigo:Long): Call<EventoModel>
 
     @DELETE("evento/{codigo}/{id}")
-    fun deleteEvento(@Path("codigo") codigo: Long?,
+    fun deleteEvento(@Path("codigo") codigo: Int?,
                      @Path("id") id: Int?): Call<Void>
 
 
