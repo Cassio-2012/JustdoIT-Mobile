@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1551529780/just-do-it.iml" filepath="$PROJECT_DIR$/.idea/modules/1551529780/just-do-it.iml" group="just-do-it" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/just-do-it-app.iml" filepath="$PROJECT_DIR$/.idea/modules/just-do-it-app.iml" group="just-do-it/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1850280678/just-do-it.iml" filepath="$PROJECT_DIR$/.idea/modules/-1850280678/just-do-it.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/just-do-it.app.iml" filepath="$PROJECT_DIR$/.idea/modules/just-do-it.app.iml" />
     </modules>
   </component>
 </project>
