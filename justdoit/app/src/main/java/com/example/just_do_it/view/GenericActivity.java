@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.just_do_it.Perfil;
 import com.example.just_do_it.R;
 import com.example.just_do_it.cadastro.CadastroOneActivity;
 import com.example.just_do_it.login.Login_activity;
@@ -87,6 +88,8 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
             case R.id.nav_recomendation:
                 break;
             case R.id.nav_person:
+                Intent Perfil = new Intent(this, Perfil.class);
+                startActivity(Perfil);
                 break;
 
             case R.id.nav_all_events:

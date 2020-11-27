@@ -30,14 +30,16 @@ class Perfil : AppCompatActivity() {
         setContentView(R.layout.activity_perfil)
 
         usuarioLogado = loadUser()
-        val fotoPerfil = usuarioLogado.photo?.let { convertImg(it)?.let { roundedBitmap(it) } }
+        val fotoPerfil = usuarioLogado.photo?.let { convertImg(it) }
+//                usuarioLogado.photo?.let { convertImg(it)?.let { roundedBitmap(it) } }
 
 
-        date_name_perfil.text = usuarioLogado.nome
-        date_name_Email.text = usuarioLogado.email
-        img_perfil.setImageDrawable(fotoPerfil)
+        et_name.setHint(usuarioLogado.nome)
+        et_Email.setHint(usuarioLogado.email)
+        img_perfil.setImageBitmap(fotoPerfil)
         work_name_project.text= usuarioLogado.title
-
+         println(usuarioLogado.nome )
+        println(usuarioLogado.email)
     }
     fun convertImg(foto: String): Bitmap? {
         val base64String = foto

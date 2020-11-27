@@ -144,7 +144,7 @@
         android:layout_width="300dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="30dp"
-        android:layout_height="36dp"
+        android:layout_height="46dp"
         android:background="@drawable/btn_cadastro_blue"
         android:fontFamily="sans-serif-black"
         android:hint="@string/continuar"
