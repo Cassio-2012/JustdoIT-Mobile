@@ -2,10 +2,7 @@ package com.example.just_do_it.view
 
 
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.os.Build
 import android.os.Bundle
-import android.util.Base64
 import android.view.MenuItem
 import android.view.View
 import android.widget.ListView
@@ -13,26 +10,17 @@ import android.widget.Toast
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.login.SessionManager
-
-import com.example.just_do_it.service.model.EventoModel
 import com.example.just_do_it.service.model.PostModel
 import com.example.just_do_it.service.model.UserModel
-
-import com.example.just_do_it.service.repository.remote.EventoService
 import com.example.just_do_it.service.repository.remote.PostService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.utils.MyAdapterPublicacoes
-
-import com.google.android.gms.common.util.Base64Utils.decode
-import kotlinx.android.synthetic.main.activity_cadastro_evento.*
-import kotlinx.android.synthetic.main.activity_detalhes_evento.*
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
-
 import java.util.*
+import javax.security.auth.callback.Callback
 
 
 class MainActivity : GenericActivity() {
@@ -51,7 +39,7 @@ class MainActivity : GenericActivity() {
 
             val inicializarPost = remote.postLoadInitial(idUsuarioLog)
 
-            inicializarPost.enqueue(object : Callback<Void> {
+            inicializarPost.enqueue(object : retrofit2.Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     Toast.makeText(this@MainActivity, "Inicializado", Toast.LENGTH_SHORT).show()
                 }
@@ -67,9 +55,11 @@ class MainActivity : GenericActivity() {
             })
         }
 
+//        /home/cassio/.jdks/corretto-11.0.9.1
+
 
         val carregarPost = remote.postLoadFeedAll()
-        carregarPost.enqueue(object : Callback<List<PostModel>> {
+        carregarPost.enqueue(object : retrofit2.Callback<List<PostModel>> {
             override fun onResponse(
                 call: Call<List<PostModel>>,
                 response: Response<List<PostModel>>
@@ -166,7 +156,7 @@ class MainActivity : GenericActivity() {
         )
         val postar = remote.postNew(post,id)
 
-        postar.enqueue(object : Callback<Void> {
+        postar.enqueue(object : retrofit2.Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 Toast.makeText(this@MainActivity, "Publicado", Toast.LENGTH_SHORT).show()
             }

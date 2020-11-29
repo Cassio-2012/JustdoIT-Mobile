@@ -163,6 +163,8 @@
                     android:layout_weight="1"
                     android:src="@drawable/recaptcha" />
 
+
+
             </LinearLayout>
 
 
@@ -178,7 +180,9 @@
                 android:textAllCaps="false"
                 android:textColor="#ffff"
                 android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/descricaoInput" />
+                app:layout_constraintTop_toBottomOf="@id/descricaoInput"/>
+
+
 
 
         </LinearLayout>

@@ -1,10 +1,12 @@
 package com.example.just_do_it.view.evento
 
+import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
+import android.widget.*
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.login.SessionManager
@@ -32,6 +34,11 @@ class CadastroEventoActivity : GenericActivity() {
         setContentView(R.layout.activity_cadastro_evento)
         usuario = loadUser()
         start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkDark()
     }
 
     fun cancelarCadastro(v: View) {
@@ -152,7 +159,12 @@ class CadastroEventoActivity : GenericActivity() {
             startActivity(login)
             return false
 
-        }else {
+        }
+        if(menuItem.itemId == R.id.nav_dark) {
+            chooseThemeDialog()
+            return false
+        }
+        else {
             return super.onNavigationItemSelected(menuItem)
         }
     }
@@ -203,6 +215,121 @@ fun pesquisarCep(v: View){
         sessionManager.init(applicationContext)
 
         sessionManager.removeUser()
+
+    }
+
+    fun chooseThemeDialog() {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Chose the Theme")
+        val styles = arrayOf("Light","Dark")
+        val checkedItem = 0
+
+        builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
+
+            sessionManager.init(getApplicationContext())
+
+            when (which) {
+                0 -> {
+
+                    changeLight()
+                    sessionManager.rmDark()
+                    dialog.dismiss()
+
+                }
+                1 -> {
+
+                    changeDark()
+                    sessionManager.setDark()
+                    dialog.dismiss()
+                }
+
+            }
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    fun changeLight() {
+
+
+        val cadastroEvento = Intent(this, CadastroEventoActivity::class.java)
+
+
+        startActivity(cadastroEvento)
+
+
+    }
+
+    fun changeDark() {
+
+
+        var body = findViewById<ScrollView>(R.id.cadastro_layout)
+        var tv_titulo = findViewById<TextView>(R.id.titulo_cadastro)
+        var nomeEv = findViewById<TextView>(R.id.nomeDeEventoTxt)
+        var nomeInput = findViewById<EditText>(R.id.nomeDeEventoInput)
+        var cepTXT = findViewById<TextView>(R.id.cepTxt)
+        var cepINPUT = findViewById<EditText>(R.id.cepInput)
+//        var ll_posCep = findViewById<LinearLayout>(R.id.posCep)
+        var logradouroTXT = findViewById<TextView>(R.id.logradouroTxt)
+        var logradouroINPUT = findViewById<TextView>(R.id.logradouroInput)
+        var complementoTXT = findViewById<TextView>(R.id.complementoTxt)
+        var complementoINPUT = findViewById<EditText>(R.id.complementoInput)
+        var bairroTXT = findViewById<TextView>(R.id.bairroTxt)
+        var bairroINPUT = findViewById<TextView>(R.id.bairroInput)
+        var localidadeTXT = findViewById<TextView>(R.id.localidadeTxt)
+        var localidadeINPUT = findViewById<TextView>(R.id.localidadeInput)
+        var ufTXT = findViewById<TextView>(R.id.ufTxt)
+        var ufINPUT = findViewById<TextView>(R.id.ufInput)
+//        var data_ll = findViewById<LinearLayout>(R.id.dataHoraInput)
+        var dataTXT = findViewById<TextView>(R.id.dataTxt)
+        var dataINPUT = findViewById<EditText>(R.id.dataInput)
+//        var hora_ll = findViewById<LinearLayout>(R.id.campoHora)
+        var horaTXT = findViewById<TextView>(R.id.horaTxt)
+        var horaINPUT = findViewById<TextView>(R.id.horaInput)
+        var descTXT = findViewById<TextView>(R.id.descricaoTxt)
+        var descINPUT = findViewById<TextView>(R.id.descricaoInput)
+
+
+
+        body.setBackgroundColor(Color.parseColor("#000000"))
+        tv_titulo.setTextColor(Color.parseColor("#A9A9A9"))
+        nomeEv.setTextColor(Color.parseColor("#A9A9A9"))
+        nomeInput.setTextColor(Color.parseColor("#000000"))
+//        campoData.setBackgroundColor(Color.parseColor("#A9A9A9"))
+
+        nomeInput.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        cepTXT.setTextColor(Color.parseColor("#ffffff"))
+        cepINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        logradouroTXT.setTextColor(Color.parseColor("#ffffff"))
+        logradouroINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        complementoTXT.setTextColor(Color.parseColor("#ffffff"))
+        complementoINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        bairroTXT.setTextColor(Color.parseColor("#ffffff"))
+        bairroINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        localidadeTXT.setTextColor(Color.parseColor("#ffffff"))
+        localidadeINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        ufTXT.setTextColor(Color.parseColor("#ffffff"))
+        ufINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        dataTXT.setTextColor(Color.parseColor("#ffffff"))
+        dataINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        horaTXT.setTextColor(Color.parseColor("#ffffff"))
+        horaINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+        descTXT.setTextColor(Color.parseColor("#ffffff"))
+        descINPUT.setBackgroundColor(Color.parseColor("#A9A9A9"))
+
+
+    }
+
+    fun checkDark() {
+        sessionManager.init(getApplicationContext())
+
+        val isdark = sessionManager.checkDark()
+
+        if (isdark) {
+            changeDark()
+        }
 
     }
 

@@ -79,8 +79,11 @@ class ListaEventosActivity : GenericActivity() {
             }
         })
 
+    }
 
-
+    override fun onResume() {
+        super.onResume()
+        checkDark()
     }
 
     override fun onBackPressed() {
@@ -130,24 +133,20 @@ class ListaEventosActivity : GenericActivity() {
 
         builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
 
-            val linear = findViewById<LinearLayout>(R.id.body)
-            val tv = findViewById<TextView>(R.id.titulo)
-            val row = findViewById<LinearLayout>(R.id.ll_row)
+            sessionManager.init(getApplicationContext())
 
             when (which) {
                 0 -> {
 
-
-                    linear.setBackgroundColor(Color.parseColor("#ffffff"))
-                    row.setBackgroundColor(Color.parseColor("#ffffff"))
-                    tv.setTextColor(Color.parseColor("#000000"))
+                    changeLight()
+                    sessionManager.rmDark()
                     dialog.dismiss()
+
                 }
                 1 -> {
 
-                    linear.setBackgroundColor(Color.parseColor("#000000"))
-                    row.setBackgroundColor(Color.parseColor("#000000"))
-                    tv.setTextColor(Color.parseColor("#A9A9A9"))
+                    changeDark()
+                    sessionManager.setDark()
                     dialog.dismiss()
                 }
 
@@ -158,6 +157,29 @@ class ListaEventosActivity : GenericActivity() {
         dialog.show()
     }
 
+    fun changeLight() {
+
+        val linear = findViewById<LinearLayout>(R.id.body)
+        val tv = findViewById<TextView>(R.id.titulo)
+        val row = findViewById<LinearLayout>(R.id.ll_row)
+
+        linear.setBackgroundColor(Color.parseColor("#ffffff"))
+        row.setBackgroundColor(Color.parseColor("#ffffff"))
+        tv.setTextColor(Color.parseColor("#000000"))
+
+    }
+
+    fun changeDark() {
+
+        var linear = findViewById<LinearLayout>(R.id.body)
+        var tv = findViewById<TextView>(R.id.titulo)
+        var row = findViewById<LinearLayout>(R.id.ll_row)
+
+        linear.setBackgroundColor(Color.parseColor("#000000"))
+//        row.setBackgroundColor(Color.parseColor("#000000"))
+        tv.setTextColor(Color.parseColor("#A9A9A9"))
+
+    }
 
     fun removeUser() {
 
@@ -166,4 +188,17 @@ class ListaEventosActivity : GenericActivity() {
         sessionManager.removeUser()
 
     }
+
+    fun checkDark() {
+        sessionManager.init(getApplicationContext())
+
+        val isdark = sessionManager.checkDark()
+
+        if (isdark) {
+            changeDark()
+        }
+
+    }
+
+
 }
