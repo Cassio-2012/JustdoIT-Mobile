@@ -7,6 +7,8 @@ import android.os.Handler
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.view.MainActivity
+import com.junga.socketio_android.ChatRoomActivity
+import com.junga.socketio_android.EntranceActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
                 //tela que aparecerá apos a splashActivity
 
-                  MainActivity::class.java)
+                  EntranceActivity::class.java)
             startActivity(intent)
         },3000)
     }
