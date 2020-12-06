@@ -59,7 +59,7 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
 
         //Let's connect to our Chat room! :D
         try {
-            mSocket = IO.socket("http://10.0.2.2:3000")
+            mSocket = IO.socket("https://80987ef34590.ngrok.io")
             Log.d("success", mSocket.id())
 
         } catch (e: Exception) {
