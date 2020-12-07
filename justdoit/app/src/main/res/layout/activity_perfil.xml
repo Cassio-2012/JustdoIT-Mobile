@@ -4,158 +4,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil"
-    android:orientation="vertical">
+    android:orientation="vertical"
 
-   <include
-       android:id="@+id/toobar"
-       layout="@layout/toolbar"/>
+    tools:context=".view.PerfilActivity">
+
+    <include
+        android:id="@+id/toobar"
+        layout="@layout/toolbar" />
 
     <ScrollView
         android:id="@+id/scroolView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="85dp"
         app:layout_constraintTop_toBottomOf="@id/toobar"
-        tools:ignore="MissingConstraints"
-        android:layout_marginTop="85dp">
+        tools:ignore="MissingConstraints">
 
-<LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:layout_constraintTop_toBottomOf="@id/scroolView">
+            <LinearLayout
+                android:id="@+id/body_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
 
-    <LinearLayout
-        android:id="@+id/body_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        android:orientation="vertical"
-        android:gravity="center">
+                <ImageView
+                    android:id="@+id/img_perfil"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/fotoperfil"
+                    tools:layout_editor_absoluteX="127dp" />
 
-    <ImageView
-        android:id="@+id/img_perfil"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_gravity="center"
-        android:src="@drawable/fotoperfil"
-        tools:layout_editor_absoluteX="127dp" />
+                <TextView
+                    android:id="@+id/name_perfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="Meliante_mandrack"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/name_perfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Meliante_mandrack"
-        android:textSize="19sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginTop="6dp"/>
+                <TextView
+                    android:id="@+id/work_name_project"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="Project Owner"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/work_name_project"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Project Owner"
-            android:textSize="19sp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_marginTop="6dp"/>
+            </LinearLayout>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/sobre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:text="Sobre :"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/body_perfil"
+                tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/sobre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sobre :"
-        app:layout_constraintTop_toBottomOf="@id/body_perfil"
-        android:textSize="19sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginTop="17dp"
-        tools:ignore="MissingConstraints"
-        android:paddingLeft="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                app:layout_constraintTop_toBottomOf="@id/sobre">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/sobre"
-    android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+                <TextView
+                    android:id="@+id/date_name_perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:text="Nome"
+                    android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/date_name_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Nome"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"/>
+                <EditText
+                    android:id="@+id/et_name"
+                    style="@style/width_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/input_cadastro"
+                    android:inputType="text"
+                    android:paddingLeft="5dp" />
 
-    <EditText
-        android:id="@+id/et_name"
-        style="@style/width_et"
-        android:layout_width="400dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/input_cadastro"
-        android:paddingLeft="5dp"
-        android:inputType="text"/>
+                <TextView
+                    android:id="@+id/date_name_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:text="E-Mail"
+                    android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/date_name_Email"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="E-Mail"
-        android:textSize="20sp"
-        android:layout_marginTop="25dp"/>
+                <EditText
+                    android:id="@+id/et_Email"
+                    style="@style/width_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/input_cadastro"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="5dp" />
 
-    <EditText
-        android:id="@+id/et_Email"
-        style="@style/width_et"
-        android:layout_width="400dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/input_cadastro"
-        android:paddingLeft="5dp"
-        android:inputType="textEmailAddress"/>
+                <TextView
+                    android:id="@+id/date_name_Telefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:text="Telefone"
+                    android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/date_name_Telefone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Telefone"
-        android:textSize="20sp"
-        android:layout_marginTop="25dp"/>
+                <EditText
+                    android:id="@+id/et_Telefone"
+                    style="@style/width_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/input_cadastro"
+                    android:inputType="number"
+                    android:paddingLeft="5dp" />
 
-    <EditText
-        android:id="@+id/et_Telefone"
-        style="@style/width_et"
-        android:layout_width="400dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/input_cadastro"
-        android:paddingLeft="5dp"
-        android:inputType="number"/>
+                <Button
+                    android:id="@+id/btn_Perfil_one"
+                    android:layout_width="match_parent"
 
-    <Button
-        android:id="@+id/btn_Perfil_one"
-        android:layout_width="300dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_height="46dp"
-        android:background="@drawable/btn_cadastro_blue"
-        android:fontFamily="sans-serif-black"
-        android:hint="@string/continuar"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/body_two"
-        />
+                    android:layout_height="46dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/btn_cadastro_blue"
+                    android:fontFamily="sans-serif-black"
+                    android:hint="@string/continuar"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@+id/body_two" />
 
-</LinearLayout>
+            </LinearLayout>
 
-</LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 

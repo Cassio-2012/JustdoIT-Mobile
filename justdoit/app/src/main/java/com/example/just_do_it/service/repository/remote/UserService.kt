@@ -20,8 +20,9 @@ interface UserService {
     fun cadastroUser( @Body usuario:UserModel
     ): Call<UserModel>
 
-
-
+    @POST("user/about")
+    fun atualizarInfo( @Body usuario:UserModel
+    ): Call<UserModel>
 
     fun cadastro(
         @Field("nome") nome: String,

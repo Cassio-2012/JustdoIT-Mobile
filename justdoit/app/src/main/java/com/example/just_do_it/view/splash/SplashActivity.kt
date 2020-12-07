@@ -7,6 +7,7 @@ import android.os.Handler
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.view.MainActivity
+import com.example.just_do_it.view.evento.ListaEventosActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
 
                 //tela que aparecerá apos a splashActivity
 
-                  MainActivity::class.java)
+                  ListaEventosActivity::class.java)
             startActivity(intent)
         },3000)
     }
