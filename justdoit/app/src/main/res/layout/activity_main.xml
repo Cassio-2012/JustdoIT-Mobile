@@ -15,12 +15,13 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
-        android:visibility="gone"
         app:menu="@menu/main_menu" />
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="20dp">
 
         <include
@@ -28,10 +29,8 @@
             layout="@layout/toolbar" />
 
         <LinearLayout
-            android:id="@+id/body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/toobar"
             android:orientation="vertical">
 
             <EditText
@@ -41,36 +40,22 @@
                 android:hint="Escreva algo" />
 
             <Button
-                android:id="@+id/btnNew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorBlue"
                 android:onClick="postar"
                 android:textColor="#fff"
                 android:text="Publicar" />
-
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-
-            android:id="@+id/recyclerView"
+        <ListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/body2"
-            tools:listitem="@layout/row_publicacoes"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
 
-        <ProgressBar
-            android:id="@+id/progressbar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/body2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>>
+        </ListView>
+    </LinearLayout>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

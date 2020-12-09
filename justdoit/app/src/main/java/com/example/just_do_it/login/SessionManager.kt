@@ -12,7 +12,7 @@ class SessionManager {
 
     private lateinit var prefs: SharedPreferences
 
-    private val PREFS_NAME = "session"
+    private  val PREFS_NAME = "session"
 
 //         val ID_USER = "id_user"
 //         val TOKEN = "token"
@@ -29,7 +29,6 @@ class SessionManager {
 //            return prefs.getLong(key, value)
 //        }
 
-
     fun writeUser(usuario: UserModel) {
         val prefsEditor: SharedPreferences.Editor = prefs.edit()
         with(prefsEditor) {
@@ -37,14 +36,9 @@ class SessionManager {
             putString("nome", usuario.nome)
             putString("e-mail", usuario.email)
             putString("photo", usuario.photo)
-            putString("senha", usuario.senha)
-            putString("title", usuario.title)
-
             commit()
         }
-
     }
-
 
     fun loadUser(): UserModel {
         val usuario = UserModel();
@@ -52,9 +46,6 @@ class SessionManager {
         usuario.nome = prefs.getString("nome", null)
         usuario.email = prefs.getString("e-mail", null)
         usuario.photo = prefs.getString("photo", null)
-        usuario.senha = prefs.getString("senha", null)
-        usuario.title = prefs.getString("title", null)
-
 
         return usuario
 
@@ -71,7 +62,7 @@ class SessionManager {
     fun setDark() {
         val prefsEditor: SharedPreferences.Editor = prefs.edit()
         with(prefsEditor) {
-            putBoolean("dark", true)
+            putBoolean("dark",true)
             commit()
         }
     }
@@ -79,14 +70,14 @@ class SessionManager {
     fun rmDark() {
         val prefsEditor: SharedPreferences.Editor = prefs.edit()
         with(prefsEditor) {
-            putBoolean("dark", false)
+            putBoolean("dark",false)
             commit()
         }
     }
 
     fun checkDark(): Boolean {
-        return prefs.getBoolean("dark", false)
+        return prefs.getBoolean("dark",false)
     }
 
-
 }
+

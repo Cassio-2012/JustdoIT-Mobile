@@ -15,8 +15,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Publi"></activity>
-        <activity android:name=".view.PerfilActivity" />
+        <activity android:name=".Perfil"></activity>
+        <activity android:name=".view.evento.HeaderActivity" />
         <activity android:name=".view.evento.ListaParticipantesActivity" />
         <activity android:name=".login.Login_activity" />
         <activity android:name=".cadastro.CadastroOneActivity" />

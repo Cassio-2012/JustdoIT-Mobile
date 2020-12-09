@@ -1,15 +1,13 @@
 package com.example.just_do_it.view.evento
 
-import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Color
 
 import android.os.Bundle
 
 import android.view.MenuItem
 import android.view.View
-import android.widget.*
 
+import android.widget.Toast
 import com.example.just_do_it.R
 import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.login.SessionManager
@@ -81,11 +79,6 @@ class DetalhesEventoActivity : GenericActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        checkDark()
-    }
-
     override fun onBackPressed() {
         super.onBackPressed()
     }
@@ -100,47 +93,9 @@ class DetalhesEventoActivity : GenericActivity() {
             startActivity(login)
             return false
 
-        }
-        if(menuItem.itemId == R.id.nav_dark) {
-            chooseThemeDialog()
-            return false
-        }
-        else {
+        } else {
             return super.onNavigationItemSelected(menuItem)
         }
-    }
-
-    fun chooseThemeDialog() {
-
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Chose the Theme")
-        val styles = arrayOf("Light","Dark")
-        val checkedItem = 0
-
-        builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
-
-            sessionManager.init(getApplicationContext())
-
-            when (which) {
-                0 -> {
-
-                    changeLight()
-                    sessionManager.rmDark()
-                    dialog.dismiss()
-
-                }
-                1 -> {
-
-                    changeDark()
-                    sessionManager.setDark()
-                    dialog.dismiss()
-                }
-
-            }
-        }
-
-        val dialog = builder.create()
-        dialog.show()
     }
 
 
@@ -247,47 +202,5 @@ class DetalhesEventoActivity : GenericActivity() {
 
     }
 
-
-    fun changeLight() {
-
-
-        val detalhesEvento = Intent(this, DetalhesEventoActivity::class.java)
-
-
-        startActivity(detalhesEvento)
-
-    }
-
-    fun changeDark() {
-        val scroll = findViewById<ScrollView>(R.id.scrol_detalhes)
-        val table = findViewById<TableLayout>(R.id.registro)
-        val tv_titulo = findViewById<TextView>(R.id.titulo_detalhes)
-        val tv_titulo_evento = findViewById<TextView>(R.id.tituloEventoDetalhes)
-        val tv_data_hora_detalhes = findViewById<TextView>(R.id.dataHoraEventoDetalhes)
-        val tv_endereco = findViewById<TextView>(R.id.enderecoEventoDetalhes)
-        val tv_detalhes = findViewById<TextView>(R.id.detalhesEventoDetalhes)
-
-
-        scroll.setBackgroundColor(Color.parseColor("#000000"))
-        table.setBackgroundColor(Color.parseColor("#000000"))
-        tv_titulo.setTextColor(Color.parseColor("#ffffff"))
-        tv_titulo_evento.setTextColor(Color.parseColor("#ffffff"))
-        tv_data_hora_detalhes.setTextColor(Color.parseColor("#A9A9A9"))
-        tv_endereco.setTextColor(Color.parseColor("#A9A9A9"))
-        tv_detalhes.setTextColor(Color.parseColor("#ffffff"))
-
-    }
-
-
-    fun checkDark() {
-        sessionManager.init(getApplicationContext())
-
-        val isdark = sessionManager.checkDark()
-
-        if (isdark) {
-            changeDark()
-        }
-
-    }
 
 }

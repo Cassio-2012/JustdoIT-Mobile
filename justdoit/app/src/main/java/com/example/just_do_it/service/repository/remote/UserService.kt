@@ -20,9 +20,8 @@ interface UserService {
     fun cadastroUser( @Body usuario:UserModel
     ): Call<UserModel>
 
-    @POST("user/about")
-    fun atualizarInfo( @Body usuario:UserModel
-    ): Call<UserModel>
+
+
 
     fun cadastro(
         @Field("nome") nome: String,
@@ -33,5 +32,9 @@ interface UserService {
         @Field("local") local: String,
         @Field("title") title: String
     ): Call<UserModel>
+
+    @POST("/user/recaptcha/mobile")
+    @FormUrlEncoded
+    fun recaptcha(@Body token:String): Call<String>
 
 }
