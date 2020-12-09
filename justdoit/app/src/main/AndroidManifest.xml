@@ -15,8 +15,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Perfil"></activity>
-        <activity android:name=".view.evento.HeaderActivity" />
+<!--        <activity android:name=".view.evento.HeaderActivity" />-->
         <activity android:name=".view.evento.ListaParticipantesActivity" />
         <activity android:name=".login.Login_activity" />
         <activity android:name=".cadastro.CadastroOneActivity" />
@@ -25,8 +26,11 @@
         <activity android:name=".view.evento.DetalhesEventoActivity" />
         <activity android:name=".view.evento.ListaEventosActivity" />
         <activity android:name=".view.evento.CadastroEventoActivity" />
+        <activity android:name="com.junga.socketio_android.ChatRoomActivity"/>
+        <activity android:name="com.junga.socketio_android.EntranceActivity"/>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.splash.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

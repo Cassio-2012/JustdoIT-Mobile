@@ -5,10 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -26,6 +22,7 @@ import com.example.just_do_it.service.model.UserModel;
 import com.example.just_do_it.view.evento.CadastroEventoActivity;
 import com.example.just_do_it.view.evento.ListaEventosActivity;
 import com.google.android.material.navigation.NavigationView;
+import com.junga.socketio_android.EntranceActivity;
 
 import java.nio.file.OpenOption;
 
@@ -100,6 +97,10 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
                 Intent cadastroEvento = new Intent(this, CadastroEventoActivity.class);
                 startActivity(cadastroEvento);
                 break;
+
+                case R.id.nav_chatJustDoIt:
+                    Intent Chat = new Intent(this, EntranceActivity.class);
+                    startActivity(Chat);
             case R.id.nav_help:
                 break;
         }

@@ -37,6 +37,7 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="home" translatable="false">Home</string>
     <string name="recomendados">Recomendados</string>
+    <string name="chatJustDoIt">Chat</string>
     <string name="perfil">Perfil</string>
     <string name="logout" translatable="false">Logout</string>
     <string name="evento">Evento</string>
