@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.just_do_it.R
+import com.example.just_do_it.login.SessionManager
+import com.example.just_do_it.service.model.UserModel
 import kotlinx.android.synthetic.main.activity_entrance.*
 import org.jetbrains.anko.startActivity
 
@@ -26,7 +28,10 @@ class EntranceActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun enterChatroom(){
-        val userName = userName.text.toString()
+        val user:SessionManager = SessionManager();
+        var usuario:UserModel;
+        usuario = user.loadUser()
+        val userName = usuario.nome
         val roomName = roomname.text.toString()
 
         if(!roomName.isNullOrBlank()&&!userName.isNullOrBlank()) {

@@ -25,7 +25,7 @@ interface LoginService {
 
     ): Call<LoginModel>
 
-    @POST("user/login")
+    @POST("/user/login")
     fun loginUser( @Body usuario: UserModel
     ): Call<UserModel>
 

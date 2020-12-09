@@ -70,7 +70,7 @@ class Login_activity : AppCompatActivity() {
 //                    }
 //            }
 //            LoginCaptcha()
-        var usuario = UserModel()
+            var usuario = UserModel()
             usuario.email = login
             usuario.senha = senha
 
@@ -82,7 +82,7 @@ class Login_activity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
 
-                    val usuario:UserModel? = response.body()
+                    val usuario: UserModel? = response.body()
 
                     prepareEvents(usuario);
 
@@ -93,7 +93,7 @@ class Login_activity : AppCompatActivity() {
     }
 
 
-//    fun LoginCaptcha() {
+    //    fun LoginCaptcha() {
 //        val loginrecaptcha = remote.logar(login, senha, mensagemErro, validated)
 //        loginrecaptcha.enqueue(object : Callback<LoginModel> {
 //            override fun onFailure(call: Call<LoginModel>, t: Throwable) {
@@ -110,8 +110,8 @@ class Login_activity : AppCompatActivity() {
 //
 //    }
 //
-    fun prepareEvents(usuario:UserModel?) {
-
+    fun prepareEvents(usuario: UserModel?) {
+        usuario?.senha = senha
 
         val manager = SessionManager()
         manager.init(getApplicationContext())
@@ -119,10 +119,10 @@ class Login_activity : AppCompatActivity() {
         val user: String? = manager.read("usuario", null)
 
         if (user == null) {
+
             manager.writeUser(usuario!!)
             goToEvents()
-        }
-        else {
+        } else {
             Toast.makeText(this, "erro de conexão", Toast.LENGTH_SHORT).show()
             return
         }
@@ -137,16 +137,13 @@ class Login_activity : AppCompatActivity() {
 
     }
 
-    fun goToRegister(component:View) {
+    fun goToRegister(component: View) {
 
         val register = Intent(this, CadastroOneActivity::class.java)
 
         startActivity(register)
 
     }
-
-
-
 
 
 }

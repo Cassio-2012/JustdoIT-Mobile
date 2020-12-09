@@ -12,7 +12,7 @@
             android:title="@string/recomendados" />
         <item
             android:id="@+id/nav_chatJustDoIt"
-            android:icon="@drawable/chaticon"
+            android:icon="@drawable/logo"
             android:title="@string/chatJustDoIt" />
     </group>
 
@@ -24,6 +24,7 @@
                     android:id="@+id/nav_person"
                     android:icon="@drawable/ic_person"
                     android:title="@string/perfil" />
+
 
                     <item
                         android:id="@+id/nav_dark"
