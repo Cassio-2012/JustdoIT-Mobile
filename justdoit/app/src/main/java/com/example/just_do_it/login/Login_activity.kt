@@ -1,31 +1,43 @@
 package com.example.just_do_it.login
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.just_do_it.R
 import com.example.just_do_it.cadastro.CadastroOneActivity
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.LoginService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.view.evento.ListaEventosActivity
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.CommonStatusCodes
+import com.google.android.gms.safetynet.SafetyNet
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import kotlinx.android.synthetic.main.activity_login_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.concurrent.Executor
 
 
 class Login_activity : AppCompatActivity() {
 
     val remote = RetrofitClient.createService(LoginService::class.java)
 
+
     companion object {
         const val TAG = "LoginActivity"
-        const val SITE_KEY = "6LdaTsgZAAAAAKfNzRRnShR_oI_UOG3r2cubtiPk"
+        const val SITE_KEY = "6Ldf9_YZAAAAAOesE7FPr6H3EfrY2QjzqaH4_KBa"
+        const val CAPTCHA_KEY = "6LcUiv0ZAAAAAM9euoLRqq5yb22AUM6qTig6idNz"
     }
+
 
     var login: String = ""
     var senha: String = ""
@@ -38,7 +50,6 @@ class Login_activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.just_do_it.R.layout.activity_login_activity)
-
         manager.init(getApplicationContext())
 
         val user: String? = manager.read("nome", null)
@@ -59,59 +70,102 @@ class Login_activity : AppCompatActivity() {
             Toast.makeText(this, "Por favor não deixe nenhum campo em vazio", Toast.LENGTH_SHORT)
                 .show()
         } else {
-//            if(checkbox_recaptcha.isChecked()){
-//                SafetyNet.getClient(this).verifyWithRecaptcha(SITE_KEY)
-//                    .addOnSuccessListener(this) { response ->
-//                        if (!response.tokenResult.isEmpty()) {
-//                            Toast.makeText(this, "Verificando...", Toast.LENGTH_SHORT).show()
-//                            checkbox_recaptcha.setTextColor(Color.GREEN)
-//
-//                        }
-//                    }
-//            }
-//            LoginCaptcha()
             var usuario = UserModel()
             usuario.email = login
             usuario.senha = senha
+            if (validated == true) {
+                var logar = remote.loginUser(usuario)
+                logar.enqueue(object : Callback<UserModel> {
+                    override fun onFailure(call: Call<UserModel>, t: Throwable) {
+                        Toast.makeText(baseContext, "Erro $t", Toast.LENGTH_SHORT).show()
+                    }
 
-            var logar = remote.loginUser(usuario)
-            logar.enqueue(object : Callback<UserModel> {
-                override fun onFailure(call: Call<UserModel>, t: Throwable) {
-                    Toast.makeText(baseContext, "Erro $t", Toast.LENGTH_SHORT).show()
+                    override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
+
+                        val usuario: UserModel? = response.body()
+
+                        prepareEvents(usuario);
+
+                    }
+                })
+            }
+
+        }
+
+    }
+
+    fun loginCaptcha(Componente: View) {
+/*
+        if (checkbox_recaptcha.isChecked) {
+            val loginrecaptcha = remote.recaptcha(CAPTCHA_KEY)
+            loginrecaptcha.enqueue(object : Callback<String> {
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+                    Toast.makeText(
+                        this@Login_activity,
+                        "${response.body()} ${response.code()}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    validated = true
                 }
 
-                override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    Toast.makeText(this@Login_activity, "${t.message}", Toast.LENGTH_SHORT).show()
+                    validated = false
+                }
+            })
+        }*/
 
-                    val usuario: UserModel? = response.body()
+        SafetyNet.getClient(this).verifyWithRecaptcha(CAPTCHA_KEY)
 
-                    prepareEvents(usuario);
+            .addOnSuccessListener(this as Executor, OnSuccessListener { response ->
+                // Indicates communication with reCAPTCHA service was
+                // successful.
+                val userResponseToken = response.tokenResult
+                if (response.tokenResult?.isNotEmpty() == true) {
+                    val loginrecaptcha = remote.recaptcha(CAPTCHA_KEY)
+                    loginrecaptcha.enqueue(object : Callback<String> {
+                        override fun onResponse(call: Call<String>, response: Response<String>) {
+                            Toast.makeText(
+                                this@Login_activity,
+                                "${response.body()} ${response.code()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            validated = true
+                        }
 
+                        override fun onFailure(call: Call<String>, t: Throwable) {
+                            Toast.makeText(this@Login_activity, "${t.message}", Toast.LENGTH_SHORT).show()
+                            validated = false
+                        }
+                    })
+                }
+            })
+            .addOnFailureListener(this as Executor, OnFailureListener { e ->
+                if (e is ApiException) {
+                    // An error occurred when communicating with the
+                    // reCAPTCHA service. Refer to the status code to
+                    // handle the error appropriately.
+                    Log.d(TAG, "Error: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
+                } else {
+                    // A different, unknown type of error occurred.
+                    Log.d(TAG, "Error: ${e.message}")
                 }
             })
 
-        }
+
+
+
+
+
+
+
+
+
+
     }
 
-
-    //    fun LoginCaptcha() {
-//        val loginrecaptcha = remote.logar(login, senha, mensagemErro, validated)
-//        loginrecaptcha.enqueue(object : Callback<LoginModel> {
-//            override fun onFailure(call: Call<LoginModel>, t: Throwable) {
-//                Toast.makeText(baseContext, "Erro $t", Toast.LENGTH_SHORT).show()
-//            }
-//
-//            override fun onResponse(call: Call<LoginModel>, response: Response<LoginModel>) {
-//                val login = response.body()
-//                if (login.hashCode().equals(200)) {
-//                    startActivity(home)
-//                }
-//            }
-//        })
-//
-//    }
-//
     fun prepareEvents(usuario: UserModel?) {
-        usuario?.senha = senha
+
 
         val manager = SessionManager()
         manager.init(getApplicationContext())
@@ -119,7 +173,6 @@ class Login_activity : AppCompatActivity() {
         val user: String? = manager.read("usuario", null)
 
         if (user == null) {
-
             manager.writeUser(usuario!!)
             goToEvents()
         } else {

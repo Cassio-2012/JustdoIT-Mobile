@@ -5,7 +5,6 @@ import android.content.res.Resources
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.Handler
 import android.util.Base64
 import android.view.LayoutInflater
 
@@ -14,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
-import androidx.recyclerview.widget.RecyclerView
 import com.example.just_do_it.R
 import com.example.just_do_it.login.SessionManager
 
@@ -24,10 +22,9 @@ import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.PostService
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import kotlinx.android.synthetic.main.activity_detalhes_evento.*
-import kotlinx.android.synthetic.main.activity_main.*
-/*
+
 class MyAdapterPublicacoes(var contexto: Context, var resouces: Int, var itens: List<PostModel>) :
-    ArrayAdapter<PostModel>(contexto, resouces, itens){
+    ArrayAdapter<PostModel>(contexto, resouces, itens) {
 
     val remote = RetrofitClient.createService(PostService::class.java)
     val sessionManager = SessionManager();
@@ -46,22 +43,19 @@ class MyAdapterPublicacoes(var contexto: Context, var resouces: Int, var itens: 
         // val like: ImageView = view.findViewById(R.id.like)
 
         var post: PostModel = itens[position]
-        var configImagem: TratamentoImagen? = null
-        var fotoPerfil =   post.imagem?.let { convertImg(it)?.let { roundedBitmap(it) } }
 
+        var fotoPerfil = post.imagem?.let { convertImg(it) }
         if (!post.img_conteudo.isNullOrEmpty()) {
-            var fotoPost = post.img_conteudo?.let { configImagem?.convertImg(it) }
+            var fotoPost = post.img_conteudo?.let { convertImg(it) }
             fotoPublicacao.visibility = View.VISIBLE
             fotoPublicacao.setImageBitmap(fotoPost)
         }
 
-        foto.setImageDrawable(fotoPerfil)
+        foto.setImageDrawable(fotoPerfil?.let { roundedBitmap(it) })
         nomeUsuario.text = post.nome
         dataPublicacao.text = post.data
         conteudo.text = post.conteudo
-
         return view
-
     }
 
     fun loadUser(): UserModel {
@@ -72,8 +66,7 @@ class MyAdapterPublicacoes(var contexto: Context, var resouces: Int, var itens: 
 
     }
 
-
-}
+    //METODO PARA DECODIFICAR IMAGEM EM BASE64
     fun convertImg(foto: String): Bitmap? {
         val base64String = foto
         val base64Image = base64String?.split(",".toRegex())?.toTypedArray()?.get(1)
@@ -82,11 +75,12 @@ class MyAdapterPublicacoes(var contexto: Context, var resouces: Int, var itens: 
         return decodedByte
     }
 
+    //METODO PARA AREDONDAR BORDA DA IMAGEM
     fun roundedBitmap(bitmap: Bitmap): RoundedBitmapDrawable {
         val roundedBitmapDrawable =
             RoundedBitmapDrawableFactory.create(Resources.getSystem(), bitmap)
         roundedBitmapDrawable.isCircular = true
-        roundedBitmapDrawable.cornerRadius = Math.max(bitmap.width, bitmap.height) / 3.0f
+        roundedBitmapDrawable.cornerRadius = Math.max(bitmap.width, bitmap.height) / 2.0f
         return roundedBitmapDrawable
 
     }
@@ -139,4 +133,13 @@ class MyAdapterPublicacoes(var contexto: Context, var resouces: Int, var itens: 
         contexto.startActivity(detalhes)
 
     }
-*/*/
+*/
+
+}
+
+
+
+
+
+
+

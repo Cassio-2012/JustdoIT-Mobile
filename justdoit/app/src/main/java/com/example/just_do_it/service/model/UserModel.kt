@@ -10,4 +10,3 @@ class UserModel {
     var local: String? = null
     var title: String? = null
 }
-

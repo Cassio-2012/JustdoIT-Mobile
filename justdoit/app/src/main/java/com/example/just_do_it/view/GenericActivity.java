@@ -1,29 +1,30 @@
 package com.example.just_do_it.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
-<<<<<<< HEAD
-import android.view.View;
-import android.widget.TextView;
-import androidx.activity.OnBackPressedCallback;
-=======
-
->>>>>>> f7a407bd6834df45db225d4e2f9a8a3760827bfe
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.just_do_it.Perfil;
 import com.example.just_do_it.R;
+import com.example.just_do_it.cadastro.CadastroOneActivity;
+import com.example.just_do_it.login.Login_activity;
 import com.example.just_do_it.login.SessionManager;
 import com.example.just_do_it.service.model.UserModel;
 import com.example.just_do_it.view.evento.CadastroEventoActivity;
-import com.example.just_do_it.view.PerfilActivity;
 import com.example.just_do_it.view.evento.ListaEventosActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.junga.socketio_android.EntranceActivity;
+
+import java.nio.file.OpenOption;
 
 public class GenericActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //variaveis
@@ -84,8 +85,8 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
             case R.id.nav_recomendation:
                 break;
             case R.id.nav_person:
-                Intent perfil = new Intent(this, PerfilActivity.class);
-                startActivity(new Intent(this, PerfilActivity.class));
+                Intent Perfil = new Intent(this, Perfil.class);
+                startActivity(Perfil);
                 break;
 
             case R.id.nav_all_events:
