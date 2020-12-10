@@ -18,6 +18,8 @@ class EntranceActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_entrance)
 
         button.setOnClickListener(this)
+
+
     }
 
 
@@ -28,9 +30,11 @@ class EntranceActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun enterChatroom(){
-        val user:SessionManager = SessionManager();
+//        val user:SessionManager = SessionManager();
         var usuario:UserModel;
-        usuario = user.loadUser()
+        val manager = SessionManager()
+        manager.init(getApplicationContext())
+        usuario = manager.loadUser()
         val userName = usuario.nome
         val roomName = roomname.text.toString()
 
