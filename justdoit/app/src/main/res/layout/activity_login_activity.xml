@@ -153,7 +153,7 @@
                     android:layout_weight="2"
                     android:text="Eu não sou um robo"
                     android:textSize="15sp"
-                    android:onClick="loginCaptcha"
+
 
                     />
 
