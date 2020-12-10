@@ -1,11 +1,14 @@
 package com.junga.socketio_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.just_do_it.R
+import com.example.just_do_it.view.evento.ListaEventosActivity
 import com.google.gson.Gson
 import com.junga.socketio_android.model.MessageType
 import io.socket.client.IO
@@ -38,12 +41,17 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
 
 
         send.setOnClickListener(this)
-        leave.setOnClickListener(this)
+//        leave.setOnClickListener(this)
 
         //Get the nickname and roomname from entrance activity.
         try {
             userName = intent.getStringExtra("userName")!!
             roomName = intent.getStringExtra("roomName")!!
+
+            val nomeSala: TextView = findViewById<TextView>(R.id.partnerName)
+
+            nomeSala.text = roomName
+
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -59,7 +67,11 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
 
         //Let's connect to our Chat room! :D
         try {
-            mSocket = IO.socket("https://ae2c303ab465.ngrok.io")
+            mSocket = IO.socket("https://poc-vbs.herokuapp.com/")
+            val nomeSala: TextView = findViewById<TextView>(R.id.partnerName)
+
+            nomeSala.text = roomName
+
             Log.d("success", mSocket.id())
 
         } catch (e: Exception) {
@@ -111,6 +123,13 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
         addItemToRecyclerView(message)
     }
 
+    fun goBack(component:View){
+        val events = Intent(this, ListaEventosActivity::class.java)
+
+        startActivity(events)
+
+    }
+
     private fun addItemToRecyclerView(message: Message) {
 
         //Since this function is inside of the listener,
@@ -127,7 +146,7 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0!!.id) {
             R.id.send -> sendMessage()
-            R.id.leave -> onDestroy()
+//            R.id.leave -> onDestroy()
         }
     }
 
