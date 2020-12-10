@@ -83,8 +83,13 @@ class Login_activity : AppCompatActivity() {
                     override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
 
                         val usuario: UserModel? = response.body()
+                        if(usuario == null){
+                            Toast.makeText(this@Login_activity, "Senha ou usuario incorreto", Toast.LENGTH_SHORT)
+                                    .show()
+                        }else{
+                            prepareEvents(usuario);
+                        }
 
-                        prepareEvents(usuario);
 
                     }
                 })

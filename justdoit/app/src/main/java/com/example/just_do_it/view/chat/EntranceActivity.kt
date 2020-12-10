@@ -3,6 +3,7 @@ package com.junga.socketio_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import com.example.just_do_it.R
 import com.example.just_do_it.login.SessionManager
@@ -37,6 +38,7 @@ class EntranceActivity : AppCompatActivity(), View.OnClickListener {
         usuario = manager.loadUser()
         val userName = usuario.nome
         val roomName = roomname.text.toString()
+
 
         if(!roomName.isNullOrBlank()&&!userName.isNullOrBlank()) {
             startActivity<ChatRoomActivity>(
