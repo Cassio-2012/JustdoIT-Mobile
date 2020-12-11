@@ -1,13 +1,16 @@
 package com.junga.socketio_android
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.just_do_it.R
+import com.example.just_do_it.login.SessionManager
 import com.example.just_do_it.view.evento.ListaEventosActivity
 import com.google.gson.Gson
 import com.junga.socketio_android.model.MessageType
@@ -22,6 +25,7 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
 
 
     val TAG = ChatRoomActivity::class.java.simpleName
+    val sessionManager = SessionManager()
 
 
     lateinit var mSocket: Socket;
@@ -84,6 +88,11 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
         mSocket.on("newUserToChatRoom", onNewUser)
         mSocket.on("updateChat", onUpdateChat)
         mSocket.on("userLeftChatRoom", onUserLeft)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkDark()
     }
 
     var onUserLeft = Emitter.Listener {
@@ -156,6 +165,32 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
         val jsonData = gson.toJson(data)
         mSocket.emit("unsubscribe", jsonData)
         mSocket.disconnect()
+    }
+
+    fun changeDark() {
+
+        val layout = findViewById<ConstraintLayout>(R.id.layout_chat)
+        val tv_name = findViewById<TextView>(R.id.partnerName)
+        val et_chat = findViewById<TextView>(R.id.editText)
+
+
+        layout.setBackgroundColor(Color.parseColor("#000000"))
+        tv_name.setTextColor(Color.parseColor("#ffffff"))
+        et_chat.setTextColor(Color.parseColor("#ffffff"))
+        et_chat.setHintTextColor(Color.parseColor("#A9A9A9"))
+        
+
+    }
+
+    fun checkDark() {
+        sessionManager.init(getApplicationContext())
+
+        val isdark = sessionManager.checkDark()
+
+        if (isdark) {
+            changeDark()
+        }
+
     }
 
 }
