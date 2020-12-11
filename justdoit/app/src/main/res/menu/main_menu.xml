@@ -7,10 +7,6 @@
             android:icon="@drawable/ic_home"
             android:title="@string/home" />
         <item
-            android:id="@+id/nav_recomendation"
-            android:icon="@drawable/ic_like"
-            android:title="@string/recomendados" />
-        <item
             android:id="@+id/nav_chatJustDoIt"
             android:icon="@drawable/logo"
             android:title="@string/chatJustDoIt" />
@@ -56,11 +52,6 @@
             </menu>
         </item>
 
-
-<item
-android:icon="@drawable/ic_help"
-android:id="@+id/nav_help"
-android:title="@string/ajuda" />
 
 
     </menu>

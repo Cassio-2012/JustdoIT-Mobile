@@ -1,25 +1,24 @@
 package com.example.just_do_it
 
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
+import android.view.MenuItem
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
-import android.util.Base64
+import com.example.just_do_it.login.Login_activity
 import com.example.just_do_it.login.SessionManager
 import com.example.just_do_it.service.model.UserModel
 import com.example.just_do_it.service.repository.remote.RetrofitClient
 import com.example.just_do_it.service.repository.remote.UserService
 import com.example.just_do_it.view.GenericActivity
 import kotlinx.android.synthetic.main.activity_perfil.*
-import retrofit2.Retrofit
-import java.util.*
 
-/*
-class Perfil : GenericActivity()  {
-    val  remote = RetrofitClient.createService(UserService::class.java)
+class PerfilActivity : GenericActivity() {
+    val remote = RetrofitClient.createService(UserService::class.java)
     var usuarioLogado = UserModel()
     val sessionManager = SessionManager()
 
@@ -33,8 +32,9 @@ class Perfil : GenericActivity()  {
         img_perfil.setImageBitmap(fotoPerfil)
         name.text = "Nome: ${usuarioLogado.nome}"
         email.text = "Email: ${usuarioLogado.email}"
-        obs.text = "Ocupação: ${usuarioLogado.title}"
+
     }
+
     fun convertImg(foto: String): Bitmap? {
         val base64String = foto
         val base64Image = base64String?.split(",".toRegex())?.toTypedArray()?.get(1)
@@ -52,6 +52,7 @@ class Perfil : GenericActivity()  {
         return roundedBitmapDrawable
 
     }
+
     fun loadUser(): UserModel {
         val sessionManager = SessionManager()
         sessionManager.init(applicationContext)
@@ -67,4 +68,24 @@ class Perfil : GenericActivity()  {
 
     }
 
-}*/
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+
+    }
+
+    override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
+
+        if (menuItem.itemId == R.id.nav_logout) {
+
+            val login = Intent(this, Login_activity::class.java)
+            removeUser();
+            startActivity(login)
+            return false
+
+        } else {
+            return super.onNavigationItemSelected(menuItem)
+        }
+    }
+
+}

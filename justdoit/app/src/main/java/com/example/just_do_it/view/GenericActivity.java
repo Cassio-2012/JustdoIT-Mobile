@@ -13,7 +13,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.just_do_it.Perfil;
+
+import com.example.just_do_it.PerfilActivity;
 import com.example.just_do_it.R;
 import com.example.just_do_it.cadastro.CadastroOneActivity;
 import com.example.just_do_it.login.Login_activity;
@@ -48,8 +49,6 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
         setSupportActionBar(toolbar);
 
         //Navigation Drawer Menu
-
-
         navigationView.bringToFront();
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
@@ -82,11 +81,9 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
                 Intent home = new Intent(this, MainActivity.class);
                 startActivity(home);
                 break;
-            case R.id.nav_recomendation:
-                break;
             case R.id.nav_person:
-                Intent Perfil = new Intent(this, Perfil.class);
-                startActivity(Perfil);
+                Intent perfil = new Intent(this, PerfilActivity.class);
+                startActivity(perfil);
                 break;
 
             case R.id.nav_all_events:
@@ -101,8 +98,7 @@ public class GenericActivity extends AppCompatActivity implements NavigationView
                 case R.id.nav_chatJustDoIt:
                     Intent Chat = new Intent(this, EntranceActivity.class);
                     startActivity(Chat);
-            case R.id.nav_help:
-                break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

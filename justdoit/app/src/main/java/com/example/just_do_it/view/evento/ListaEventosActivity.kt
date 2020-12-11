@@ -36,7 +36,7 @@ class ListaEventosActivity : GenericActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_eventos)
         start()
-//        val usuarioLogado = loadUser()
+
         val listaEventos = remote.listarEventos()
          listaEventos.enqueue(object : Callback<List<EventoModel>> {
             override fun onResponse(
@@ -91,38 +91,24 @@ class ListaEventosActivity : GenericActivity() {
 
 
     }
-//
-//    fun loadUser(): UserModel {
-//
-//        sessionManager.init(applicationContext)
-//
-//        return sessionManager.loadUser()
-//       if(!super.onNavigationItemSelected(menuItem)) {
-//
-//            val login = Intent(this, Login_activity::class.java)
-//            removeUser();
-//            startActivity(login)
-//        }
-//    }
+override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
 
-    override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
+    if(menuItem.itemId == R.id.nav_logout) {
 
-        if(menuItem.itemId == R.id.nav_logout) {
+        val login = Intent(this, Login_activity::class.java)
+        removeUser();
+        startActivity(login)
+        return false
 
-            val login = Intent(this, Login_activity::class.java)
-            removeUser();
-            startActivity(login)
-            return false
-
-        }
-        if(menuItem.itemId == R.id.nav_dark) {
-            chooseThemeDialog()
-            return false
-        }
-        else {
-            return super.onNavigationItemSelected(menuItem)
-        }
     }
+    if(menuItem.itemId == R.id.nav_dark) {
+        chooseThemeDialog()
+        return false
+    }
+    else {
+        return super.onNavigationItemSelected(menuItem)
+    }
+}
 
     fun chooseThemeDialog() {
 

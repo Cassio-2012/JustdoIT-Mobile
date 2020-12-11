@@ -101,11 +101,7 @@ class MainActivity : GenericActivity() {
                                 )
                                         .show()
                             } else {
-                                Toast.makeText(
-                                        this@MainActivity,
-                                        "${response.code()}",
-                                        Toast.LENGTH_SHORT
-                                ).show()
+
                             }
                         }
 
@@ -121,20 +117,12 @@ class MainActivity : GenericActivity() {
 
 
                 } else {
-                    Toast.makeText(
-                            this@MainActivity,
-                            "${response.code()}",
-                            Toast.LENGTH_SHORT
-                    ).show()
+
                 }
             }
 
             override fun onFailure(call: Call<UserModel>, t: Throwable) {
-                Toast.makeText(
-                        this@MainActivity,
-                        "Problema ao logar ",
-                        Toast.LENGTH_SHORT
-                ).show()
+
             }
 
         })

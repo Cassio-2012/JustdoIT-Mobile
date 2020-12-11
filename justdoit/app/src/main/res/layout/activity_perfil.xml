@@ -1,162 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context=".PerfilActivity"
     android:orientation="vertical">
 
-   <include
-       android:id="@+id/toobar"
-       layout="@layout/toolbar"/>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu" />
+
 
     <ScrollView
         android:id="@+id/scroolView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@id/toobar"
-        tools:ignore="MissingConstraints"
-        android:layout_marginTop="85dp">
+      >
 
-<LinearLayout
+        <LinearLayout
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:layout_constraintTop_toBottomOf="@id/scroolView">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/scroolView">
+            <include
+                android:id="@+id/toobar"
+                layout="@layout/toolbar"/>
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Perfil"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/body_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        android:orientation="vertical"
-        android:gravity="center">
+            <LinearLayout
+                android:id="@+id/body_perfil"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
 
-    <ImageView
-        android:id="@+id/img_perfil"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_gravity="center"
-        android:src="@drawable/fotoperfil"
-        tools:layout_editor_absoluteX="127dp" />
+                <ImageView
+                    android:id="@+id/img_perfil"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/fotoperfil"
+                    tools:layout_editor_absoluteX="127dp" />
 
-    <TextView
-        android:id="@+id/name_perfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Meliante_mandrack"
-        android:textSize="19sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginTop="6dp"/>
 
-        <TextView
-            android:id="@+id/work_name_project"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Project Owner"
-            android:textSize="19sp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_marginTop="6dp"/>
+            </LinearLayout>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="50dp"
+                android:text="nome"
+                android:textSize="19sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/sobre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sobre :"
-        app:layout_constraintTop_toBottomOf="@id/body_perfil"
-        android:textSize="19sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginTop="17dp"
-        tools:ignore="MissingConstraints"
-        android:paddingLeft="10dp"/>
+            <TextView
+                android:id="@+id/email"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="email"
+                android:textSize="19sp"
+                android:textStyle="bold" />
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/sobre"
-    android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp">
 
-    <TextView
-        android:id="@+id/date_name_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Nome"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"/>
 
-    <EditText
-        android:id="@+id/et_name"
-        style="@style/width_et"
-        android:layout_width="400dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/input_cadastro"
-        android:paddingLeft="5dp"
-        android:inputType="text"/>
-
-    <TextView
-        android:id="@+id/date_name_Email"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="E-Mail"
-        android:textSize="20sp"
-        android:layout_marginTop="25dp"/>
-
-    <EditText
-        android:id="@+id/et_Email"
-        style="@style/width_et"
-        android:layout_width="400dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/input_cadastro"
-        android:paddingLeft="5dp"
-        android:inputType="textEmailAddress"/>
-
-    <TextView
-        android:id="@+id/date_name_Telefone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Telefone"
-        android:textSize="20sp"
-        android:layout_marginTop="25dp"/>
-
-    <EditText
-        android:id="@+id/et_Telefone"
-        style="@style/width_et"
-        android:layout_width="400dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/input_cadastro"
-        android:paddingLeft="5dp"
-        android:inputType="number"/>
-
-    <Button
-        android:id="@+id/btn_Perfil_one"
-        android:layout_width="300dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_height="46dp"
-        android:background="@drawable/btn_cadastro_blue"
-        android:fontFamily="sans-serif-black"
-        android:hint="@string/continuar"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/body_two"
-        />
-
-</LinearLayout>
-
-</LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

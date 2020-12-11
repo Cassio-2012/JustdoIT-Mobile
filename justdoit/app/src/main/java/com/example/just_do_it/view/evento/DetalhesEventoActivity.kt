@@ -30,7 +30,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-
 class DetalhesEventoActivity : GenericActivity() {
     val remote = RetrofitClient.createService(EventoService::class.java)
     val sessionManager = SessionManager()
@@ -51,34 +50,32 @@ class DetalhesEventoActivity : GenericActivity() {
 
         evento.enqueue(object : Callback<EventoModel> {
             override fun onResponse(
-                call: Call<EventoModel>,
-                response: Response<EventoModel>
+                    call: Call<EventoModel>,
+                    response: Response<EventoModel>
             ) {
 
                 val evento = response.body()
                 tituloEventoDetalhes.text = evento?.nome
                 dataHoraEventoDetalhes.text =
-                    "Data: ${evento?.dataEvento} - Hora: ${evento?.horario}"
+                        "Data: ${evento?.dataEvento} - Hora: ${evento?.horario}"
                 enderecoEventoDetalhes.text =
-                    "Endereço : ${evento?.logradouro} ${evento?.bairro} ${evento?.localidade} ${evento?.uf}"
+                        "Endereço : ${evento?.logradouro} ${evento?.bairro} ${evento?.localidade} ${evento?.uf}"
                 detalhesEventoDetalhes.text = evento?.descricao
 
                 eventoConsulta = evento
 
                 if (usuarioLogado.id == evento?.adm) {
-                    cadastrarBotao.visibility = View.GONE
+                    deletarEvento.visibility = View.VISIBLE
+                    listaParticipantes.visibility = View.VISIBLE
+                } else {
+                    cadastrarBotao.visibility = View.VISIBLE
                 }
-                if (evento?.adm != usuarioLogado.id) {
-                    deletarEvento.visibility = View.GONE
-                }
-                if (evento?.adm != usuarioLogado.id) {
-                    listaParticipantes.visibility = View.GONE
-                }
+
             }
 
             override fun onFailure(call: Call<EventoModel>, t: Throwable) {
                 Toast.makeText(applicationContext, "erro ao listar o evento", Toast.LENGTH_SHORT)
-                    .show()
+                        .show()
             }
         })
 
@@ -88,7 +85,6 @@ class DetalhesEventoActivity : GenericActivity() {
         super.onResume()
         checkDark()
     }
-
 
 
     override fun onBackPressed() {
@@ -107,12 +103,10 @@ class DetalhesEventoActivity : GenericActivity() {
 
         }
 
-        if(menuItem.itemId == R.id.nav_dark) {
+        if (menuItem.itemId == R.id.nav_dark) {
             chooseThemeDialog()
             return false
-        }
-
-        else {
+        } else {
             return super.onNavigationItemSelected(menuItem)
         }
     }
@@ -136,31 +130,31 @@ class DetalhesEventoActivity : GenericActivity() {
 
     fun deletarEvento(v: View) {
         var codigo = SharedPreferences(this).getId("codigo").toInt()
-        val deletarContato = remote.deleteEvento(codigo,usuarioLogado.id)
+        val deletarContato = remote.deleteEvento(codigo, usuarioLogado.id)
 
         deletarContato.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
 
-                Toast.makeText(this@DetalhesEventoActivity, "${response.body()} ${response.code()}", Toast.LENGTH_SHORT).show()
+
                 if (response.code() == 403) {
                     Toast.makeText(
-                        this@DetalhesEventoActivity, "Você não é o administrador deste evento.",
-                        Toast.LENGTH_SHORT
+                            this@DetalhesEventoActivity, "Você não é o administrador deste evento.",
+                            Toast.LENGTH_SHORT
                     ).show()
                 }
 
                 if (response.code() == 200) {
                     Toast.makeText(
-                        this@DetalhesEventoActivity, "Evento deletado com sucesso .",
-                        Toast.LENGTH_SHORT
+                            this@DetalhesEventoActivity, "Evento deletado com sucesso .",
+                            Toast.LENGTH_SHORT
                     ).show()
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 Toast.makeText(
-                    this@DetalhesEventoActivity, "Erro ao deletar",
-                    Toast.LENGTH_SHORT
+                        this@DetalhesEventoActivity, "Erro ao deletar",
+                        Toast.LENGTH_SHORT
                 ).show()
                 return
             }
@@ -175,9 +169,9 @@ class DetalhesEventoActivity : GenericActivity() {
         var codigo = SharedPreferences(this).getId("codigo")
         if (eventoConsulta?.adm == id) {
             Toast.makeText(
-                this,
-                "Você não pode participar desse evento por ser o administrados",
-                Toast.LENGTH_SHORT
+                    this,
+                    "Você não pode participar desse evento por ser o administrados",
+                    Toast.LENGTH_SHORT
             ).show()
         } else {
             val convidado = ConvidadoModel(null, usuarioLogado.nome, usuarioLogado.email, null)
@@ -185,29 +179,29 @@ class DetalhesEventoActivity : GenericActivity() {
 
             cadastrarConvidado.enqueue(object : Callback<ConvidadoModel> {
                 override fun onResponse(
-                    call: Call<ConvidadoModel>,
-                    response: Response<ConvidadoModel>
+                        call: Call<ConvidadoModel>,
+                        response: Response<ConvidadoModel>
                 ) {
                     if (response.code() == 200) {
                         Toast.makeText(
-                            this@DetalhesEventoActivity,
-                            "Presença marcada no evento",
-                            Toast.LENGTH_SHORT
+                                this@DetalhesEventoActivity,
+                                "Presença marcada no evento",
+                                Toast.LENGTH_SHORT
                         ).show()
                     } else {
                         Toast.makeText(
-                            this@DetalhesEventoActivity,
-                            "Problemas ao marcar presença ao evento",
-                            Toast.LENGTH_SHORT
+                                this@DetalhesEventoActivity,
+                                "Problemas ao marcar presença ao evento",
+                                Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
 
                 override fun onFailure(call: Call<ConvidadoModel>, t: Throwable) {
                     Toast.makeText(
-                        this@DetalhesEventoActivity,
-                        "Falha ao marcar presença ao evento",
-                        Toast.LENGTH_SHORT
+                            this@DetalhesEventoActivity,
+                            "Falha ao marcar presença ao evento",
+                            Toast.LENGTH_SHORT
                     ).show()
                 }
 
@@ -225,7 +219,7 @@ class DetalhesEventoActivity : GenericActivity() {
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Chose the Theme")
-        val styles = arrayOf("Light","Dark")
+        val styles = arrayOf("Light", "Dark")
         val checkedItem = 0
 
         builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
@@ -296,6 +290,5 @@ class DetalhesEventoActivity : GenericActivity() {
 
     }
 
-    
 
 }
