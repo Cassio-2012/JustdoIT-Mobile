@@ -1,0 +1,21 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1607687309769,9933,5 COUNT POST's,200,OK,CARREGAR POST's 3-1,text,true,,278055,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,8590,0,1610
+1607687319703,6634,5 COUNT POST's,200,OK,CARREGAR POST's 3-1,text,true,,274946,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,6223,0,0
+1607687326338,7045,5 COUNT POST's,200,OK,CARREGAR POST's 3-1,text,true,,834874,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,6360,0,0
+1607687333384,5855,5 COUNT POST's,200,OK,CARREGAR POST's 3-1,text,true,,262162,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,5755,0,0
+1607687339240,6290,5 COUNT POST's,200,OK,CARREGAR POST's 3-1,text,true,,415424,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,6148,0,0
+1607687345531,5841,5 COUNT POST's,200,OK,CARREGAR POST's 3-1,text,true,,274952,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,5803,0,0
+1607687351374,5153,5 COUNT POST's,500,,CARREGAR POST's 3-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",473,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,5152,0,0
+1607687356530,1443,5 COUNT POST's,500,,CARREGAR POST's 3-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",473,180,1,1,https://springapp02.azurewebsites.net/post/load/feed,1442,0,0

@@ -1,0 +1,98 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1607688019411,3844,LOGAR USUARIO,200,OK,LOGAR USUARIO 1-1,text,true,,70289,253,1,3,https://springapp02.azurewebsites.net/user/login,3145,0,1329
+1607688023255,1,LOGAR USUARIO-0,200,OK,LOGAR USUARIO 1-1,text,true,,1223,0,1,3,null,0,0,0
+1607688019416,4301,INITIAL,200,OK,INITIAL POST 2-1,,true,,295,183,1,2,https://springapp02.azurewebsites.net/post/load/initial,4301,0,1318
+1607688026912,2705,LOGAR USUARIO,200,OK,LOGAR USUARIO 1-2,text,true,,1806,255,1,4,https://springapp02.azurewebsites.net/user/login,2704,0,1028
+1607688029617,0,LOGAR USUARIO-0,200,OK,LOGAR USUARIO 1-2,text,true,,1226,0,1,4,null,0,0,0
+1607688026916,3622,INITIAL,200,OK,INITIAL POST 2-2,,true,,295,183,1,3,https://springapp02.azurewebsites.net/post/load/initial,3622,0,1017
+1607688019417,47483,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069057,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43279,0,1314
+1607688024419,46219,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4068998,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41865,0,1023
+1607688066901,41997,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069110,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,39723,0,0
+1607688070638,42728,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070150,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40565,0,0
+1607688108899,45759,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069534,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41347,0,1340
+1607688113368,45966,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4068991,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41546,0,1011
+1607688154659,42226,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4070307,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40118,0,0
+1607688159335,41708,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070007,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,39559,0,0
+1607688196886,46039,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069178,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41736,0,1301
+1607688201045,46587,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069364,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40678,0,1028
+1607688242926,42055,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4071049,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40031,0,0
+1607688247632,44805,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070649,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40957,0,0
+1607688284982,45437,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069399,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41104,0,1431
+1607688292438,45743,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069197,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41516,0,1050
+1607688330420,45774,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4071042,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43647,0,0
+1607688338183,46091,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070185,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43703,0,0
+1607688376195,47003,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069056,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42339,0,1337
+1607688384274,46200,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070644,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41944,0,1054
+1607688423199,42212,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069487,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,39571,0,0
+1607688430475,42483,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069471,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40502,0,0
+1607688465412,45473,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069249,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40881,0,1321
+1607688472959,45792,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4071246,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41427,0,1057
+1607688510887,41938,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4070344,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,39950,0,0
+1607688518752,42580,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070251,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40582,0,0
+1607688552826,45259,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069067,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41019,0,1322
+1607688561333,49093,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069542,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,44388,0,1038
+1607688598087,42894,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4070385,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40509,0,0
+1607688610427,42617,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070588,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40558,0,0
+1607688640983,46803,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069564,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42155,0,1440
+1607688653045,45511,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069329,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41051,0,1102
+1607688687787,42602,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4070085,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40613,0,0
+1607688698557,41670,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4071483,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,39571,0,0
+1607688730391,46358,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069450,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41736,0,1325
+1607688740228,45844,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4071237,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41526,0,1033
+1607688776750,42744,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4070243,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40643,0,0
+1607688786074,42105,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4071278,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40120,0,0
+1607688819495,55084,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069048,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41821,0,1340
+1607688828180,68042,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069054,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42352,0,1048
+1607688874580,58877,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4071784,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,39691,0,0
+1607688896223,48778,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069929,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41860,0,1311
+1607688933459,45669,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4070121,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41112,0,1194
+1607688945002,45591,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069107,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40478,0,0
+1607688979129,42539,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069658,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,39888,0,0
+1607688990594,46658,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069033,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42394,0,1076
+1607689021670,47091,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069020,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41972,0,1453
+1607689037254,47171,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069743,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43926,0,0
+1607689068762,44923,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4071057,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42410,0,0
+1607689084425,64814,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4068930,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43639,0,1346
+1607689113685,47539,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069191,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43055,0,1022
+1607689149241,46503,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069007,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42210,0,1294
+1607689161224,42665,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069385,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40571,0,0
+1607689195745,42731,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4071142,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40661,0,0
+1607689203891,45844,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069012,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41627,0,1230
+1607689238477,46298,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070530,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41756,0,1181
+1607689249736,42855,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4072006,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40637,0,0
+1607689284777,43338,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069320,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40918,0,0
+1607689292591,46536,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069070,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42120,0,1314
+1607689328116,45971,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069029,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41824,0,1231
+1607689339129,42756,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069986,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40434,0,0
+1607689374088,43003,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070334,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40700,0,0
+1607689381885,49656,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069586,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,45304,0,1260
+1607689417092,46525,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069074,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42160,0,1233
+1607689431543,42494,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4070843,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40380,0,0
+1607689463619,43021,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069295,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40975,0,0
+1607689474037,46004,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069436,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41908,0,1294
+1607689506640,51221,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069685,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,47068,0,1370
+1607689520042,42772,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069163,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40770,0,0
+1607689557862,44757,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069407,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41863,0,0
+1607689562814,46737,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4071271,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41766,0,1295
+1607689602621,47687,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069060,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43388,0,1818
+1607689609553,42839,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069143,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40595,0,0
+1607689650308,43083,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4071015,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40757,0,0
+1607689652392,47299,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069349,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42989,0,1353
+1607689693394,49756,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4069048,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,43179,0,1766
+1607689699693,43932,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069510,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,40383,0,0
+1607689743151,44087,ALL POST's,200,OK,CARREGAR POST's 3-2,text,true,,4070908,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,41508,0,0
+1607689743626,51416,ALL POST's,200,OK,CARREGAR POST's 3-1,text,true,,4069068,183,2,2,https://springapp02.azurewebsites.net/post/load/all/168,45035,0,1332
+1607689795044,49592,ALL POST's,Non HTTP response code: javax.net.ssl.SSLException,Non HTTP response message: java.net.SocketException: Socket closed,CARREGAR POST's 3-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: javax.net.ssl.SSLException]]]
+
+****** comparison: [[[200                                               ]]]
+
+/",2853,0,2,2,https://springapp02.azurewebsites.net/post/load/all/168,47184,0,0
+1607689787241,57396,ALL POST's,Non HTTP response code: javax.net.ssl.SSLException,Non HTTP response message: java.net.SocketException: Socket closed,CARREGAR POST's 3-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[Non HTTP response code: javax.net.ssl.SSLException]]]
+
+****** comparison: [[[200                                               ]]]
+
+/",2853,0,2,2,https://springapp02.azurewebsites.net/post/load/all/168,42167,0,1409
