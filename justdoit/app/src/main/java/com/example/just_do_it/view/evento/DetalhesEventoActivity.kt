@@ -220,7 +220,11 @@ class DetalhesEventoActivity : GenericActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Chose the Theme")
         val styles = arrayOf("Light", "Dark")
-        val checkedItem = 0
+        var checkedItem = 0
+        if (sessionManager.checkDark()) {
+            checkedItem = 1
+
+        }
 
         builder.setSingleChoiceItems(styles, checkedItem) { dialog, which ->
 

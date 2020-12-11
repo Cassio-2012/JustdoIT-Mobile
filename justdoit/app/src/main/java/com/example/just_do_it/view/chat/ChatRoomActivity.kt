@@ -63,7 +63,11 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
 
         //Set Chatroom adapter
 
-        chatRoomAdapter = ChatRoomAdapter(this, chatList);
+        sessionManager.init(getApplicationContext())
+
+        var dark = sessionManager.checkDark()
+
+        chatRoomAdapter = ChatRoomAdapter(this, chatList, dark);
         recyclerView.adapter = chatRoomAdapter;
 
         val layoutManager = LinearLayoutManager(this)

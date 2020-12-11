@@ -8,6 +8,7 @@
 package com.junga.socketio_android
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +16,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.just_do_it.R
+import com.example.just_do_it.login.SessionManager
 
-class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>) : RecyclerView.Adapter<ChatRoomAdapter.ViewHolder>(){
+class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>, val dark: Boolean) : RecyclerView.Adapter<ChatRoomAdapter.ViewHolder>(){
 
     val CHAT_MINE = 0
     val CHAT_PARTNER = 1
@@ -52,6 +54,7 @@ class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>) 
         return ViewHolder(view!!)
     }
 
+
     override fun getItemCount(): Int {
         return chatList.size
     }
@@ -77,10 +80,16 @@ class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>) 
             }
             USER_JOIN -> {
                 val text = "${userName} has entered the room"
+                if(dark) {
+                    holder.text.setTextColor(Color.parseColor("#ffffff"))
+                }
                 holder.text.setText(text)
             }
             USER_LEAVE -> {
                 val text = "${userName} has leaved the room"
+                if(dark) {
+                    holder.text.setTextColor(Color.parseColor("#ffffff"))
+                }
                 holder.text.setText(text)
             }
         }
