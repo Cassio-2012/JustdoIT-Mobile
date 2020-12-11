@@ -36,9 +36,14 @@ class SessionManager {
             putString("nome", usuario.nome)
             putString("e-mail", usuario.email)
             putString("photo", usuario.photo)
+            putString("senha", usuario.senha)
+            putString("title", usuario.title)
+
             commit()
         }
+
     }
+
 
     fun loadUser(): UserModel {
         val usuario = UserModel();
@@ -46,11 +51,13 @@ class SessionManager {
         usuario.nome = prefs.getString("nome", null)
         usuario.email = prefs.getString("e-mail", null)
         usuario.photo = prefs.getString("photo", null)
+        usuario.senha = prefs.getString("senha", null)
+        usuario.title = prefs.getString("title", null)
+
 
         return usuario
 
     }
-
     fun removeUser() {
         val prefsEditor: SharedPreferences.Editor = prefs.edit()
         with(prefsEditor) {

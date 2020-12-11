@@ -17,8 +17,8 @@ interface PostService {
     fun postNew(@Body post: PostModel,
                 @Path("id")id:Int?): Call<Void>
 
-    @GET("/post/load/initial/{id}")
-    fun postLoadInitial(@Path("id")id:Int?): Call<Void>
+    @GET("/post/load/initial")
+    fun postLoadInitial(): Call<Void>
 
     @GET("/post/load/feed")
     fun  postLoadFeed(): Call<List<PostModel>>

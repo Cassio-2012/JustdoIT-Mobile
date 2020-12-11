@@ -170,7 +170,7 @@ class Login_activity : AppCompatActivity() {
 //    }
 
     fun prepareEvents(usuario: UserModel?) {
-
+        usuario?.senha = senha
 
         val manager = SessionManager()
         manager.init(getApplicationContext())
